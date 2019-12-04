@@ -21,7 +21,9 @@
     "lodash": "^4.17.15",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-headroom": "^3.0.0",
     "react-helmet": "^5.2.0",
+    "react-instafeed": "^1.0.0",
     "react-intl": "^2.7.2",
     "styled-components": "^4.4.1",
     "styled-reset-advanced": "^1.0.2"
@@ -38,5 +40,8 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "start": "gatsby serve"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3"
   }
 }

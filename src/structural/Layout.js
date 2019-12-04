@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset-advanced';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import Instafeed from '../components/Instagram'
 import Helmet from 'react-helmet'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { IntlProvider, addLocaleData } from 'react-intl';
@@ -9,11 +10,11 @@ import 'intl';
 
 import en from 'react-intl/locale-data/en';
 import 'intl/locale-data/jsonp/en';
-import de from 'react-intl/locale-data/de';
-import 'intl/locale-data/jsonp/de';
+import fr from 'react-intl/locale-data/fr';
+import 'intl/locale-data/jsonp/fr';
 
 // add concatenated locale data
-addLocaleData([...en, ...de]);
+addLocaleData([...en, ...fr]);
 
 const GlobalStyle = createGlobalStyle`${reset}`;
 
@@ -28,10 +29,6 @@ class LayoutWrapper extends Component {
     this.langKey = getCurrentLangKey(langs, defaultLangKey, url);
     this.homeLink = `/${this.langKey}/`;
     this.langsMenu = getLangs(langs, this.langKey, getUrlForLang(this.homeLink, url));
-
-    // get the appropriate message file based on langKey
-    // at the moment this assumes that langKey will provide us
-    // with the appropriate language code
     this.i18nMessages = require(`../data/meta/${this.langKey}`);
   }
   render() {
@@ -51,6 +48,7 @@ class LayoutWrapper extends Component {
           />
           <Header langs={this.langsMenu} />
             {this.children}
+          <Instafeed />
           </>
       </IntlProvider>
     );

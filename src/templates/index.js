@@ -2,9 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../structural/Layout';
+import Hero from '../components/Hero';
+import OrgDescription from '../components/OrgDescription';
 
-const IndexPage = ({ data, location }) => (
-    <Layout data={data} location={location} />
+const MainPage = ({ data, location }) => (
+  <Layout data={data} location={location}>
+    <Hero />
+    <OrgDescription />
+  </Layout>
 );
 
 export const query = graphql`
@@ -27,4 +32,4 @@ export const query = graphql`
     }
   }
 `;
-export default IndexPage;
+export default MainPage;
