@@ -10,11 +10,12 @@ exports.createPages = ({ graphql, actions }) => {
 
   locales.forEach((locale) => {
     const prefix = locale;
-    createPage({
-      path: `/${prefix}`,
-      component: path.resolve('./src/templates/index.js'),
-      context: { locale },
-    });
-  });
-}
-
+    ['index', 'contact'].forEach((template) => {
+      const slug = template === 'index' ? '' : `/${template}`;
+      createPage({
+        path: `/${prefix}${slug}`,
+        component: path.resolve(`./src/templates/${template}.js`),
+        context: { locale },
+      })
+    }) 
+  })}
