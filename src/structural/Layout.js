@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset-advanced';
 import Header from '../components/Header';
 import Instafeed from '../components/Instagram'
@@ -7,6 +7,7 @@ import Helmet from 'react-helmet'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import 'intl';
+import { theme } from '../theme';
 
 import en from 'react-intl/locale-data/en';
 import 'intl/locale-data/jsonp/en';
@@ -16,7 +17,11 @@ import 'intl/locale-data/jsonp/fr';
 // add concatenated locale data
 addLocaleData([...en, ...fr]);
 
-const GlobalStyle = createGlobalStyle`${reset}`;
+const GlobalStyle = createGlobalStyle`
+${reset}
+input{
+  background-color: none;
+}`;
 
 class LayoutWrapper extends Component {
   constructor(props) {
@@ -37,19 +42,21 @@ class LayoutWrapper extends Component {
         locale={this.langKey}
         messages={this.i18nMessages}
       >
-        <>
-        <GlobalStyle />
-          <Helmet
-            title="Centre Multisport"
-            meta={[
-              { name: 'description', content: 'Sample' },
-              { name: 'keywords', content: 'sample, something' },
-            ]}
-          />
-          <Header langs={this.langsMenu} />
-            {this.children}
-          <Instafeed />
-          </>
+        <ThemeProvider theme={theme}>
+          <>
+            <GlobalStyle />
+              <Helmet
+                title="Centre Multisport"
+                meta={[
+                  { name: 'description', content: 'Sample' },
+                  { name: 'keywords', content: 'sample, something' },
+                ]}
+              />
+              <Header langs={this.langsMenu} />
+                {this.children}
+              <Instafeed />
+            </>
+          </ThemeProvider>
       </IntlProvider>
     );
   }
