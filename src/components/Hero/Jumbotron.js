@@ -5,6 +5,7 @@ const Jumbotron = styled.div`
     height: 100%;
     overflow: hidden;
     line-height: 0;
+    position: relative;
 `;
 
 export default Jumbotron;
