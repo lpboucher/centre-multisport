@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Instafeed, { buildUrl } from "react-instafeed";
+import { buildUrl } from "react-instafeed";
 
 const InstagramFeed = () => {
     const [hasError, setErrors] = useState(false);
@@ -17,7 +17,7 @@ const InstagramFeed = () => {
         const res = await fetch(buildUrl(options));
         res
             .json()
-            .then(res => setInsta(res))
+            .then(res => setInsta(res.data))
             .catch(err => setErrors(err));
     }
     
@@ -29,16 +29,7 @@ const InstagramFeed = () => {
     console.log(insta);
     return (
         <div id="instafeed">
-            {/*<Instafeed
-                limit="9"
-                ref={instaRef}
-                resolution="thumbnail"
-                sortBy="most-recent"
-                target="instafeed"
-                userId="351704786"
-                clientId="33d057cb82d742b2ab2b467324f29ac2"
-            />*/}
-            {JSON.stringify(insta)}
+            success!
         </div>
     );
 };
