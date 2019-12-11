@@ -11,7 +11,7 @@ const Navigation = styled(Headroom)`
     }
 
     & > .headroom--pinned {
-        background-color: black;
+        background-color: ${({theme}) => theme.primaryDark};;
         color: white;
     }
 `;
