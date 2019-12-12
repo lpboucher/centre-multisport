@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { buildUrl } from "react-instafeed";
 
+import Grid from '../../structural/Grid';
+import ImageWrapper from '../../generic/ImageWrapper';
+
 const InstagramFeed = () => {
     const [hasError, setErrors] = useState(false);
     const [insta, setInsta] = useState({});
@@ -11,6 +14,7 @@ const InstagramFeed = () => {
         resolution: 'thumbnail',
         sortBy: 'most-recent',
         userId: 1370915852,
+        limit: 4
       };
 
     const fetchData = async () => {
@@ -24,13 +28,19 @@ const InstagramFeed = () => {
     useEffect(() => {
         fetchData();
     },[]);
-
-    const instaRef = React.createRef(null);
     console.log(insta);
     return (
-        <div id="instafeed">
-            success!
-        </div>
+        <Grid noGap columns={4} rows={`calc(100vw / 4)`}>
+            {insta && insta.length > 0 &&
+            <>
+                {insta.map(item => 
+                    <ImageWrapper>
+                        <img src={item.images.standard_resolution.url}></img>
+                    </ImageWrapper>
+                )}
+            </>
+            }
+        </Grid>
     );
 };
 
