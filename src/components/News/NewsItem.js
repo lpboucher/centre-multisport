@@ -1,20 +1,26 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import Container from '../../structural/Container';
+import Flex from '../../structural/Flex';
+import Teaser from './Teaser';
 
 export const StyledNewsItem = styled.div`
   margin: 0 20px;
 `;
 
-const NewsItem = ({background}) => {
+const NewsItem = ({background, withPreview}) => {
     return (
         <StyledNewsItem>
-            <Container background={background} withRadius full>
-                <p>Title</p>
-                <p>Lorem Ipsum description of the article</p>
-                <p>Arrow</p>
-            </Container>
+            <Flex noWrap>
+                <Teaser 
+                    background={background}
+                    title={'Title'}
+                    excerpt={'Lorem Ipsum description of the article'}
+                />
+                {withPreview &&
+                    <p>Here goes an image</p>
+                }
+            </Flex>
         </StyledNewsItem>
     )
 }
