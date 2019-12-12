@@ -6,7 +6,7 @@ import Heading from '../../generic/Heading';
 const Overlay = () => {
     return (
         <Container absolute background="transparent" top="40%">
-            <Heading color="white">Le Centre Multisport par excellence sur la rive-nord.</Heading>
+            <Heading color="primaryLight">Le Centre Multisport par excellence sur la rive-nord.</Heading>
         </Container>
     );
 };

@@ -7,7 +7,7 @@ import MobileDisplay from '../../structural/MobileWrapper';
 const OrgDesc = () => (
     <MobileDisplay showMobile>
         <Container background="primaryDark">
-            <Heading color="white">Le Centre Multisport par excellence sur la rive-nord.</Heading>
+            <Heading color="primaryLight">Le Centre Multisport par excellence sur la rive-nord.</Heading>
         </Container>
     </MobileDisplay>
 )
