@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-const Input = styled.input`
+const TextArea = styled.textarea`
     width: calc(100% - 20px);
     padding: 10px;
     margin: 10px 0;
     border-radius: 10px;
     border-style: solid;
+    border-width: 2px;
 
     &:focus {
         outline: none;
@@ -16,4 +17,4 @@ const Input = styled.input`
     }
 `
 
-export default Input;
+export default TextArea;
