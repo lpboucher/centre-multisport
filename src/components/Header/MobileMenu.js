@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import MenuLink from '../../generic/MenuLink';
+
+import { useNavigation } from "../../hooks/use-navigation"
+import { filterQuery } from "../../utils/queryFilters"
+
 export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
@@ -20,7 +25,7 @@ export const StyledMenu = styled.nav`
     width: 100vw;
   }
 
-  a {
+  ${MenuLink} {
     font-size: 2rem;
     text-transform: uppercase;
     padding: 2rem 0;
@@ -38,12 +43,19 @@ export const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({open}) => {
+const Menu = ({locale, open}) => {
+  const allNavItems = useNavigation();
+  const activeMobileNav = filterQuery(allNavItems, {node_locale: [locale.langKey], type: ["Mobile"]});
   return (
     <StyledMenu open={open}>
-      <a href="/">About us</a>
-      <a href="/">Pricing</a>
-      <a href="/">Contact</a>
+      {activeMobileNav[0].items.map(item => 
+        <MenuLink
+            key={item.id}
+            to={`/${locale.langKey}${item.link}`}
+        >
+            {item.label}
+        </MenuLink>
+      )}
     </StyledMenu>
   )
 }

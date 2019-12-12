@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-const Logo = () => {
+const Logo = ({locale}) => {
     return (
         <h1>
-            <Link to="/">Centre Multisport</Link>
+            <Link to={`/${locale.langKey}`}>Centre Multisport</Link>
         </h1>
     );
 };

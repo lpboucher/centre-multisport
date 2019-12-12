@@ -16,13 +16,13 @@ const Header = ({langs}) => {
     <Navigation>
       <Container>
           <Flex justifyBetween alignCenter>
-            <Logo />
+            <Logo locale={locale}/>
             <Menu locale={locale}/>
             <SelectLanguage langs={langs} />
             <Burger open={open} setOpen={setOpen} />
           </Flex>
       </Container>
-      <MobileMenu open={open} setOpen={setOpen} />
+      <MobileMenu locale={locale} open={open} setOpen={setOpen} />
     </Navigation>
   )
 }
