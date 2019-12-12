@@ -2,9 +2,11 @@ export const theme = {
     primaryDark: '#1A1B1B',
     primaryLight: '#DCDCDC',
     primaryHighlight: '#4A5E36',
+    primaryHover: '#4A5E36',
     secondaryHighlight: '#1F5768',
     borderRadius: '4px',
     containerPadding: {horizontal: '15px', vertical: '25px'},
+    gridGap: '15px',
     size: {
       mobileS: '320px',
       mobileM: '375px',

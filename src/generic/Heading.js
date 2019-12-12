@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 const baseStyle = css`
     margin-bottom: ${props => props.noMargin && '0'};
-    color: ${props => props.color};
+    color: ${({color, theme}) => color ? theme[color] : theme.primaryLight};
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     margin-top: 0;
@@ -12,7 +12,7 @@ const baseStyle = css`
         if (props.right) return 'right'
         return 'left'
     }};
-
+    text-transform: uppercase;
     max-width: 100%;
 `
 

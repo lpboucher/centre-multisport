@@ -22,7 +22,7 @@ const MainPage = ({ data, location, pageContext }) => (
     <OrgDescription />
     <News />
     <Contact />
-    <Gallery />
+    <Gallery background="primaryLight"/>
   </Layout>
 );
 

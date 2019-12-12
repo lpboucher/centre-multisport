@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 const Button = styled.button`
+    text-transform: uppercase;
     border-radius: 5px;
     background-color: ${({secondary, theme}) => (secondary ? theme.secondaryHighlight : theme.primaryHighlight)};
     color: ${({theme}) => theme.primaryLight};;
