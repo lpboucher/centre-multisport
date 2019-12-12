@@ -10,7 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   locales.forEach((locale) => {
     const prefix = locale;
-    ['index', 'contact'].forEach((template) => {
+    ['index', 'contact', 'gallery', 'news', 'about'].forEach((template) => {
       const slug = template === 'index' ? '' : `/${template}`;
       createPage({
         path: `/${prefix}${slug}`,
