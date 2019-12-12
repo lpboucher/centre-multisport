@@ -1,21 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Helmet from 'react-helmet'
 
 import Layout from '../structural/Layout';
-import Hero from '../components/Hero';
-import Contact from '../components/Contact';
+import Spacer from '../structural/Spacer';
+import ArticlesList from '../components/ArticlesList';
 
-const ContactPage = ({data, location}) => (
+const NewsPage = ({data, location}) => (
     <Layout data={data} location={location}>
-        <Helmet><script src="https://kwes.io/js/kwes.js"></script></Helmet>
-        <Hero />
-        <Contact />
+      <Spacer padding={`37px 0`}/>
+      <ArticlesList />
     </Layout>
 );
 
 export const query = graphql`
-  query SiteContact {
+  query SiteNews {
     site {
         siteMetadata{
           languages {
@@ -26,4 +24,4 @@ export const query = graphql`
     }
   }
 `;
-export default ContactPage;
+export default NewsPage;
