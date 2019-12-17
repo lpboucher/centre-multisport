@@ -10,19 +10,18 @@ import Burger from './Burger';
 import MobileMenu from './MobileMenu';
 
 const Header = ({langs}) => {
-  const locale = langs.find(lang => lang.selected);
   const [open, setOpen] = useState(false);
   return (
     <Navigation>
       <Container>
           <Flex justifyBetween alignCenter>
-            <Logo locale={locale}/>
-            <Menu locale={locale}/>
+            <Logo />
+            <Menu />
             <SelectLanguage langs={langs} />
             <Burger open={open} setOpen={setOpen} />
           </Flex>
       </Container>
-      <MobileMenu locale={locale} open={open} setOpen={setOpen} />
+      <MobileMenu open={open} setOpen={setOpen} />
     </Navigation>
   )
 }
