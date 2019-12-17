@@ -1,19 +1,19 @@
 import React from 'react';
+import {useIntl} from 'react-intl';
 
 import Container from '../../structural/Container';
 import Flex from '../../structural/Flex';
 import ActivityItem from './ActivityItem';
 
 import { useActivityItems } from "../../hooks/use-activityItems"
-import { filterQuery } from "../../utils/queryFilters"
 
-const OfferList = ({locale}) => {
-    const allItems = useActivityItems();
-    const activeItems = filterQuery(allItems, {node_locale: [locale]});
+const OfferList = () => {
+    const { locale } = useIntl();
+    const allItems = useActivityItems({node_locale: [locale]});
     return (
     <Container background="primaryLight">
         <Flex justifyAround alignCenter>
-            {activeItems.map(item =>
+            {allItems.map(item =>
                 <ActivityItem key={item.id} {...item}/>
             )}
         </Flex>

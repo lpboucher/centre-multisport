@@ -1,15 +1,23 @@
 import React from 'react';
+import {useIntl} from 'react-intl';
 
 import Container from '../../structural/Container';
 import Heading from '../../generic/Heading';
 import MobileDisplay from '../../structural/MobileWrapper';
 
-const OrgDesc = () => (
-    <MobileDisplay showMobile>
-        <Container background="primaryDark">
-            <Heading color="primaryLight">Le Centre Multisport par excellence sur la rive-nord.</Heading>
-        </Container>
-    </MobileDisplay>
-)
+import { useBanner } from "../../hooks/use-banner"
+
+const OrgDesc = () => {
+    const { locale } = useIntl();
+    const banners = useBanner({node_locale: [locale]});
+    const activeBanner = banners.find(banner => banner.appearsOn.includes('index'));
+    return (
+        <MobileDisplay showMobile>
+            <Container background="primaryDark">
+                <Heading color="primaryLight">{activeBanner.tagline}</Heading>
+            </Container>
+        </MobileDisplay>
+    )
+}
 
 export default OrgDesc;

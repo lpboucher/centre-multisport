@@ -1,5 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
-export const useActivityItems = () => {
+import { filterQuery } from "../utils/queryFilters"
+export const useActivityItems = (filter) => {
   const { allContentfulActivityItem } = useStaticQuery(
     graphql`
       query {
@@ -19,5 +20,5 @@ export const useActivityItems = () => {
       }
     `
   )
-  return allContentfulActivityItem.nodes;
+  return filterQuery(allContentfulActivityItem.nodes, filter);
 }

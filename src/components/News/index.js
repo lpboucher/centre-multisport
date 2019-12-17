@@ -1,27 +1,30 @@
 import React from 'react';
+import {useIntl} from 'react-intl';
 
 import Container from '../../structural/Container';
-import NewsSlider from '../News/NewsSlider';
-import NewsItem from '../../components/News/NewsItem';
+import NewsItem from '../News/NewsItem';
 
-const News = () => {
-    const settings = {
-        arrows: false,
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-    };
+import { useNewsItems } from "../../hooks/use-newsItems"
+
+const NewsList = () => {
+    const { locale } = useIntl();
+    const news = useNewsItems({node_locale: [locale]});
+    const backgrounds = ['primaryLight', 'primaryHighlight', 'secondaryHighlight'];
+    console.log(news);
     return (
         <Container background="primaryDark">
-            <NewsSlider {...settings}>
-                <NewsItem background="primaryLight"/>
-                <NewsItem background="primaryHighlight"/>
-                <NewsItem background="secondaryHighlight"/>
-            </NewsSlider>
+            {news.map((item, index) =>
+                <NewsItem
+                    key={item.id}
+                    background={backgrounds[index]}
+                    title={item.title}
+                    excerpt={item.excerpt}
+                    featured={item.featuredImage}
+                    withPreview
+                />
+            )}
         </Container>
     )
 }
 
-export default News;
+export default NewsList;
