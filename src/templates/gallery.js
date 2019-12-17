@@ -2,12 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../structural/Layout';
-import Spacer from '../structural/Spacer';
+import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 
-const GalleryPage = ({data, location}) => (
+const GalleryPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
-      <Spacer padding={`37px 0`}/>
+      <Hero page={pageContext.template} />
       <Gallery background="primaryDark"/>
     </Layout>
 );

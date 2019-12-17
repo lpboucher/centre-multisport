@@ -6,10 +6,10 @@ import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
 import Contact from '../components/Contact';
 
-const ContactPage = ({data, location}) => (
+const ContactPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
         <Helmet><script src="https://kwes.io/js/kwes.js"></script></Helmet>
-        <Hero />
+        <Hero page={pageContext.template} />
         <Contact />
     </Layout>
 );

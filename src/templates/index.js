@@ -6,7 +6,7 @@ import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
 import OfferList from '../components/OfferList';
 import OrgDescription from '../components/OrgDescription';
-import News from '../components/News';
+import News from '../components/NewsSlider';
 import Contact from '../components/Contact';
 import Gallery from '../components/Gallery';
 
@@ -17,8 +17,8 @@ const MainPage = ({ data, location, pageContext }) => (
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       <script src="https://kwes.io/js/kwes.js"></script>
     </Helmet>
-    <Hero />
-    <OfferList locale={pageContext.locale}/>
+    <Hero page={pageContext.template} />
+    <OfferList/>
     <OrgDescription />
     <News />
     <Contact />

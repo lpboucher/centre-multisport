@@ -5,9 +5,9 @@ import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
 import About from '../components/About';
 
-const AboutPage = ({data, location}) => (
+const AboutPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
-        <Hero />
+        <Hero page={pageContext.template} />
         <About />
     </Layout>
 );
