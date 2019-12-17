@@ -15,7 +15,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: `/${prefix}${slug}`,
         component: path.resolve(`./src/templates/${template}.js`),
-        context: { locale },
+        context: { locale, template },
       })
     }) 
   })}
