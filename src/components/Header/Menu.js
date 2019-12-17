@@ -1,13 +1,12 @@
 import React from "react"
 import styled from 'styled-components'
-import PropTypes from "prop-types"
+import {useIntl} from 'react-intl';
 import { device } from '../../theme';
 
 import Flex from '../../structural/Flex';
 import MenuLink from '../../generic/MenuLink';
 
 import { useNavigation } from "../../hooks/use-navigation"
-import { filterQuery } from "../../utils/queryFilters"
 
 export const StyledMenu = styled.nav`
   margin: 0 auto;
@@ -18,16 +17,16 @@ export const StyledMenu = styled.nav`
     }
 `;
 
-const Menu = ({ locale }) => {
-    const allNavItems = useNavigation();
-    const activeNav = filterQuery(allNavItems, {node_locale: [locale.langKey], type: ["Main"]})
+const Menu = () => {
+    const { locale } = useIntl()
+    const { items } = useNavigation({node_locale: [locale], type: ["Main"]});
     return (
         <StyledMenu>
             <Flex>
-                {activeNav[0].items.map(item => 
+                {items.map(item => 
                     <MenuLink
                         key={item.id}
-                        to={`/${locale.langKey}${item.link}`}
+                        to={`/${locale}${item.link}`}
                     >
                         {item.label}
                     </MenuLink>
@@ -35,14 +34,6 @@ const Menu = ({ locale }) => {
             </Flex>
         </StyledMenu>
     )
-}
-
-Menu.propTypes = {
-  locale: PropTypes.shape({
-        langKey: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
-        selected: PropTypes.bool.isRequired,
-    }).isRequired,
 }
 
 export default Menu;

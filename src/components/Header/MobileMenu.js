@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useIntl} from 'react-intl';
 
 import MenuLink from '../../generic/MenuLink';
 
 import { useNavigation } from "../../hooks/use-navigation"
-import { filterQuery } from "../../utils/queryFilters"
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -43,15 +43,15 @@ export const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({locale, open}) => {
-  const allNavItems = useNavigation();
-  const activeMobileNav = filterQuery(allNavItems, {node_locale: [locale.langKey], type: ["Mobile"]});
+const Menu = ({open}) => {
+  const { locale } = useIntl();
+  const { items } = useNavigation({node_locale: [locale], type: ["Mobile"]});
   return (
     <StyledMenu open={open}>
-      {activeMobileNav[0].items.map(item => 
+      {items.map(item => 
         <MenuLink
             key={item.id}
-            to={`/${locale.langKey}${item.link}`}
+            to={`/${locale}${item.link}`}
         >
             {item.label}
         </MenuLink>
