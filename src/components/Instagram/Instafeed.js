@@ -34,7 +34,7 @@ const InstagramFeed = () => {
             {insta && insta.length > 0 &&
             <>
                 {insta.map(item => 
-                    <ImageWrapper>
+                    <ImageWrapper key={item.id}>
                         <img src={item.images.standard_resolution.url}></img>
                     </ImageWrapper>
                 )}
