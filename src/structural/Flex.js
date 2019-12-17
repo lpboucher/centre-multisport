@@ -33,6 +33,7 @@ const Flex = styled.div`
         return 'stretch'
     }};
     flex-direction: ${props => (props.column ? 'column' : 'row')};
+    height: 100%;
 `
 
 export default Flex

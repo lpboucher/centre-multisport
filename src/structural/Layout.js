@@ -10,13 +10,14 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import 'intl';
 import { theme } from '../theme';
 
-import en from 'react-intl/locale-data/en';
+//check if polyfills required for older browsers
+/*import en from 'react-intl/locale-data/en';
 import 'intl/locale-data/jsonp/en';
 import fr from 'react-intl/locale-data/fr';
-import 'intl/locale-data/jsonp/fr';
+import 'intl/locale-data/jsonp/fr';*/
 
 // add concatenated locale data
-addLocaleData([...en, ...fr]);
+//addLocaleData([...en, ...fr]);
 
 const GlobalStyle = createGlobalStyle`
 ${reset}
