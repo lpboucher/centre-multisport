@@ -3,12 +3,12 @@ import { graphql } from 'gatsby';
 
 import Layout from '../structural/Layout';
 import Spacer from '../structural/Spacer';
-import ArticlesList from '../components/ArticlesList';
+import News from '../components/News';
 
 const NewsPage = ({data, location}) => (
     <Layout data={data} location={location}>
       <Spacer padding={`37px 0`}/>
-      <ArticlesList />
+      <News />
     </Layout>
 );
 
