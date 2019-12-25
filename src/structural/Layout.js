@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
 ${reset}
 input{
   background-color: none;
+}
+body{
+  overflow-x:hidden;
 }`;
 
 class LayoutWrapper extends Component {
