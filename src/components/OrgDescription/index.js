@@ -14,7 +14,7 @@ const OrgDesc = () => {
     return (
         <MobileDisplay showMobile>
             <Container background="primaryDark">
-                <Heading color="primaryLight">{activeBanner.tagline}</Heading>
+                <Heading large color="primaryLight">{activeBanner.tagline}</Heading>
             </Container>
         </MobileDisplay>
     )

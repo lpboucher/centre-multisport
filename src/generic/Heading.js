@@ -6,6 +6,14 @@ const baseStyle = css`
     color: ${({color, theme}) => color ? theme[color] : theme.primaryLight};
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    font-size: ${props => {
+        if (props.small) return '80%'
+        else if (props.mid) return '120%'
+        else if (props.large) return '150%'
+        else if (props.xlarge) return '200%'
+        else if (props.huge) return '300%'
+        return '100%'
+    }};
     margin-top: 0;
     text-align: ${props => {
         if (props.center) return 'center'
@@ -17,7 +25,6 @@ const baseStyle = css`
 `
 
 const HeadingOne = styled.h1`
-    font-size: 42px;
     font-weight: bold;
     margin-bottom: 25px;
     ${baseStyle};
@@ -27,28 +34,24 @@ const HeadingOne = styled.h1`
 `
 
 const HeadingTwo = styled.h2`
-    font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
     ${baseStyle};
 `
 
 const HeadingThree = styled.h3`
-    font-size: 28px;
     font-weight: bold;
     margin-bottom: 15px;
     ${baseStyle};
 `
 
 const HeadingFour = styled.h4`
-    font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
     ${baseStyle};
 `
 
 const HeadingFive = styled.h5`
-    font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
     ${baseStyle};

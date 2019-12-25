@@ -7,8 +7,8 @@ import Heading from '../../generic/Heading';
 
 const ActivityItem = ({label, icon}) => {
     return (
-    <Flex column justifyCenter contentCenter>
-        <Heading h5 color="primaryDark">{label}</Heading>
+    <Flex column justifyAround contentCenter>
+        <Heading mid h5 color="primaryDark">{label}</Heading>
         <ImageWrapper width='100%' height='auto'>
             <Img fluid={icon.fluid}/>
         </ImageWrapper>

@@ -6,7 +6,7 @@ import InstagramFeed from './Instafeed';
 
 const Instagram = () => (
   <Container background="primaryDark">
-    <Heading h5 center>Suivez-nous sur Instagram @centremultisport</Heading>
+    <Heading h3 large center>Suivez-nous sur Instagram @centremultisport</Heading>
     <InstagramFeed />
   </Container>
 )

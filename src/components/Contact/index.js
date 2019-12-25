@@ -22,12 +22,12 @@ const Contact = (props) => {
     const {addressLine, city, postalCode, phone, email} = useSiteMetaData();
     return (
         <Container background="primaryDark">
-            <Heading h3>Contactez-Nous</Heading>
+            <Heading h2 large>Contactez-Nous</Heading>
             <Flex css={unEvenWidths}>
                 <Container full>
                     <Form />
                 </Container>
-                <Container full>
+                <Container fixPad>
                     <Text small>{email}</Text>
                     <Text small>{`${addressLine}, ${city}, ${postalCode}`}</Text>
                     <Text small>{`${phone}`}</Text>
