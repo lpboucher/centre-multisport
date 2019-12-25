@@ -7,6 +7,7 @@ const Text = styled.p`
         return '16px'
     }};
     font-weight: ${({bold}) => bold ? 'bold' : 'normal'};
+    text-transform: ${({uppercase}) => uppercase ? 'uppercase' : 'normal'};
     margin-bottom: ${({noMargin}) => noMargin ? noMargin && '0' : '10px'};
     color: ${({color, theme}) => color ? theme[color] : theme.primaryLight};
     margin-top: ${({noMargin}) => noMargin ? noMargin && '0' : '10px'};
