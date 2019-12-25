@@ -20,6 +20,7 @@ const NewsList = () => {
                     title={item.title}
                     excerpt={item.excerpt}
                     featured={item.featuredImage}
+                    isLight={backgrounds[index] === 'primaryLight'}
                     withPreview
                 />
             )}

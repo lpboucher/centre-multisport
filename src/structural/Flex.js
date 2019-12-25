@@ -33,7 +33,8 @@ const Flex = styled.div`
         return 'stretch'
     }};
     flex-direction: ${props => (props.column ? 'column' : 'row')};
-    height: 100%;
+    height: ${({height}) => height ? height : ''};
+    min-height: ${({minHeight}) => minHeight ? minHeight : ''}; 
 `
 
 export default Flex

@@ -7,26 +7,26 @@ import Teaser from './Teaser';
 
 export const StyledNewsItem = styled.div`
   margin: 0 20px;
-
-  & > ${Flex} {
-    min-height: 200px;
-  }
+  height: 100%;
 
   & > ${Flex} > * {
     width: 50%;
     margin: 20px 0;
     align-self: stretch;
+    flex-grow: 1;
   }
 `;
 
-const NewsItem = ({background, title, excerpt, featured, withPreview}) => {
+const NewsItem = ({background, title, excerpt, featured, withPreview, isLight}) => {
     return (
         <StyledNewsItem>
-            <Flex noWrap>
+            <Flex noWrap minHeight={'200px'}>
                 <Teaser 
                     background={background}
                     title={title}
                     excerpt={excerpt}
+                    light={isLight}
+                    withPreview
                 />
                 {withPreview &&
                     <Img fluid={featured.fluid} />

@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import Slider from "react-slick";
 
 const NewsSlider = styled(Slider)`
-  padding: 0 20px;
   & .slick-dots li button:before {
     color: white;
     font-size: 18px;
   }
 
   & .slick-dots  {
-    width: calc(100% - 40px);
+    width: 100%;
     bottom: -25px;
   }
 
@@ -25,7 +24,9 @@ const NewsSlider = styled(Slider)`
     height: auto;
   }
 
-  & .slick-slide > div {
+  & .slick-slide > div,
+  & .slick-slide > div > div,
+  & .slick-slide > div > div > div {
     height: 100%;
   }
 `;
