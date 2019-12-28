@@ -8,12 +8,12 @@ const InstagramFeed = () => {
     const [hasError, setErrors] = useState(false);
     const [insta, setInsta] = useState({});
     const options = {
-        clientId: '33d057cb82d742b2ab2b467324f29ac2',
-        accessToken:'1370915852.33d057c.2b876c662d384e958d178bcf704463a1',
+        clientId: `${process.env.GATSBY_INSTAGRAM_CLIENT_ID}`,
+        accessToken:`${process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN}`,
         get: 'user',
         resolution: 'thumbnail',
         sortBy: 'most-recent',
-        userId: 1370915852,
+        userId: `${process.env.GATSBY_INSTAGRAM_USER_ID}`,
         limit: 4
       };
 
