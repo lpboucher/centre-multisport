@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const TextArea = styled.textarea`
     width: calc(100% - 20px);
+    min-height: 100px;
     padding: 10px;
     margin: 10px 0;
     border-radius: 10px;
