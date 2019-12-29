@@ -10,8 +10,8 @@ const Teaser = ({background, title, excerpt, light, withPreview}) => {
         <Container background={background} withRadius={!withPreview} fixPad>
             <Flex height="100%" column justifyBetween alignCenter>
                 <Text bold uppercase color={light ? 'primaryDark' : 'primaryLight'}>{title}</Text>
-                <Text color={light ? 'primaryDark' : 'primaryLight'}>{excerpt}</Text>
-                <Text color={light ? 'primaryDark' : 'primaryLight'}><Arrow large /></Text>
+                <Text color={light ? 'primaryDark' : 'primaryLight'}>{`${withPreview ? excerpt : `${excerpt.substr(0,10)}...`}`}</Text>
+                <Arrow color={light ? 'primaryDark' : 'primaryLight'} length="5px" />
             </Flex>
         </Container>
     );
