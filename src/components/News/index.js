@@ -10,7 +10,6 @@ const NewsList = () => {
     const { locale } = useIntl();
     const news = useNewsItems({node_locale: [locale]});
     const backgrounds = ['primaryLight', 'primaryHighlight', 'secondaryHighlight'];
-    console.log(news);
     return (
         <Container background="primaryDark">
             {news.map((item, index) =>
