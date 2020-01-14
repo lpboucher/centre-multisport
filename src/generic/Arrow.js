@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledArrow = styled.span`
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    transform: ${({side}) => side ? `rotate(-45deg)` : 'rotate(45deg)'};
+    -webkit-transform: ${({side}) => side ? `rotate(-45deg)` : 'rotate(45deg)'};
     border: ${({theme, color}) => color ? `solid ${theme[color]}` : `solid ${theme.primaryDark}`};
     border-width: ${({width}) => width ? `0 ${width} ${width} 0` : '0 3px 3px 0'};
     display: inline-block;

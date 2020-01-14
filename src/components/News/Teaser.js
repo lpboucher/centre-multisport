@@ -9,9 +9,9 @@ const Teaser = ({background, title, excerpt, light, withPreview}) => {
     return (
         <Container background={background} withRadius={!withPreview} fixPad>
             <Flex height="100%" column justifyBetween alignCenter>
-                <Text bold uppercase color={light ? 'primaryDark' : 'primaryLight'}>{title}</Text>
-                <Text color={light ? 'primaryDark' : 'primaryLight'}>{`${withPreview ? excerpt : `${excerpt.substr(0,10)}...`}`}</Text>
-                <Arrow color={light ? 'primaryDark' : 'primaryLight'} length="5px" />
+                <Text small={!withPreview} bold uppercase color={light ? 'primaryDark' : 'primaryLight'} withPad>{title}</Text>
+                <Text color={light ? 'primaryDark' : 'primaryLight'} withPad>{`${withPreview ? excerpt : `${excerpt.substr(0,300)}...`}`}</Text>
+                <Arrow side={!withPreview} color={light ? 'primaryDark' : 'primaryLight'} length="7px" width="5px"/>
             </Flex>
         </Container>
     );
