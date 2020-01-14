@@ -28,9 +28,9 @@ const Contact = (props) => {
                     <Form />
                 </Container>
                 <Container fixPad>
-                    <Text small>{email}</Text>
-                    <Text small>{`${addressLine}, ${city}, ${postalCode}`}</Text>
-                    <Text small>{`${phone}`}</Text>
+                    <Text small withPad>{email}</Text>
+                    <Text small withPad>{`${addressLine}, ${city}, ${postalCode}\n${phone}`}</Text>
+                    <Text bold uppercase withPad>Nos heures d'ouverture</Text>
                 </Container>
             </Flex>
         </Container>

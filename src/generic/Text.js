@@ -16,6 +16,8 @@ const Text = styled.p`
         if (right) return 'right'
         return 'left'
     }};
+    padding: ${({withPad}) => withPad ? '10px' : '0'};
+    white-space: pre-wrap;
 
     max-width: 100%;
 `
