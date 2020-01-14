@@ -30,7 +30,7 @@ const InstagramFeed = () => {
     },[]);
     console.log(insta);
     return (
-        <Grid noGap columns={4} rows={`calc(100vw / 4)`}>
+        <Grid noGap columns={4}>
             {insta && insta.length > 0 &&
             <>
                 {insta.map(item => 
