@@ -18,6 +18,7 @@
     "gatsby-plugin-styled-components": "^3.1.13",
     "gatsby-source-contentful": "^2.1.63",
     "gatsby-transformer-remark": "^2.6.37",
+    "google-maps-react": "^2.0.2",
     "intl": "^1.2.5",
     "lodash": "^4.17.15",
     "react": "^16.6.3",
