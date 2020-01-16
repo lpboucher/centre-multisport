@@ -2,27 +2,29 @@ import React from 'react';
 import {useIntl} from 'react-intl';
 
 import Container from '../../structural/Container';
-import NewsItem from '../News/NewsItem';
+import NewsFilter from './NewsFilter'
+import NewsItem from './NewsItem';
+import Pagination from '../../generic/Pagination';
 
 import { useNewsItems } from "../../hooks/use-newsItems"
 
-const NewsList = () => {
+const NewsList = ({news, pages, categories}) => {
     const { locale } = useIntl();
-    const news = useNewsItems({node_locale: [locale]});
+    //const news2 = useNewsItems({node_locale: [locale]});
     const backgrounds = ['primaryLight', 'primaryHighlight', 'secondaryHighlight'];
     return (
         <Container background="primaryDark">
+            <NewsFilter current={pages.category} categories={categories} pathPrefix={`/${locale}/news`}/>
             {news.map((item, index) =>
                 <NewsItem
-                    key={item.id}
+                    key={item.node.id}
                     background={backgrounds[index]}
-                    title={item.title}
-                    excerpt={item.excerpt}
-                    featured={item.featuredImage}
+                    newsItem={item.node}
                     isLight={backgrounds[index] === 'primaryLight'}
                     withPreview
                 />
             )}
+            <Pagination pathPrefix={`/${locale}/news`} {...pages} />
         </Container>
     )
 }
