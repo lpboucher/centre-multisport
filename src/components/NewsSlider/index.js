@@ -42,8 +42,7 @@ const News = () => {
                     <NewsSlide 
                         key={item.id}
                         background={backgrounds[index]}
-                        title={item.title}
-                        excerpt={item.excerpt}
+                        newsItem={item}
                         isLight={backgrounds[index] === 'primaryLight'}
                     />
                 )}

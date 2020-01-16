@@ -7,13 +7,14 @@ export const StyledNewsItem = styled.div`
   margin: 0 20px;
 `;
 
-const NewsSlide = ({background, title, excerpt, isLight}) => {
+const NewsSlide = ({background, newsItem, isLight}) => {
     return (
         <StyledNewsItem>
             <Teaser 
                 background={background}
-                title={title}
-                excerpt={excerpt}
+                title={newsItem.title}
+                excerpt={newsItem.excerpt}
+                slug={newsItem.slug}
                 light={isLight}
             />
         </StyledNewsItem>
