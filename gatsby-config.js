@@ -8,7 +8,7 @@ module.exports = {
     title: `Centre Multisport Rosemere`,
     addressLine: `354 Montée Lesage`,
     city: `Rosemère`,
-    postalCode: `J7A4S5`,
+    postalCode: `J7A4S2`,
     phone: `+1 450 621-2520`,
     email: `cdcsr@videotron.ca`,
     languages
