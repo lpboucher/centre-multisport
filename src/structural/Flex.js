@@ -34,7 +34,8 @@ const Flex = styled.div`
     }};
     flex-direction: ${props => (props.column ? 'column' : 'row')};
     height: ${({height}) => height ? height : ''};
-    min-height: ${({minHeight}) => minHeight ? minHeight : ''}; 
+    min-height: ${({minHeight}) => minHeight ? minHeight : ''};
+    position: relative;
 `
 
 export default Flex
