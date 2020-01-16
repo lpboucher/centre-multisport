@@ -15,6 +15,9 @@ export const useActivityItems = (filter) => {
                   ...GatsbyContentfulFluid
                 }
               }
+              specifications {
+                label
+              }
             }
           }
       }

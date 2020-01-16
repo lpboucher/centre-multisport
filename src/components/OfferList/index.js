@@ -12,7 +12,7 @@ const OfferList = () => {
     const allItems = useActivityItems({node_locale: [locale]});
     return (
     <Container background="primaryLight">
-        <Flex height="150px" justifyAround alignCenter>
+        <Flex justifyAround alignCenter>
             {allItems.map(item =>
                 <ActivityItem key={item.id} {...item}/>
             )}
