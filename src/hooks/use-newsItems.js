@@ -8,6 +8,9 @@ export const useNewsItems = (filter) => {
             nodes {
                 id
                 excerpt
+                content {
+                  json
+                }
                 node_locale
                 featuredImage {
                   id
@@ -16,6 +19,7 @@ export const useNewsItems = (filter) => {
                   }
                 }
                 title
+                slug
                 appearsOnMainSlider
             }
         }
