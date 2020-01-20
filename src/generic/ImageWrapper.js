@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const ImageWrapper = styled.div`
     width: ${({ width }) => width ? width : 'inherit'};
     height: ${({ height }) => height ? height : 'inherit'};
-    margin: 0 auto;
-    width: ${({ maxW }) => maxW ? maxW : 'none'};
-    height: ${({ maxH }) => maxH ? maxH : 'none'};
+    margin: ${({margin}) => margin ? margin : '0 auto'};
+    max-width: ${({ maxW }) => maxW ? maxW : 'none'};
+    max-height: ${({ maxH }) => maxH ? maxH : 'none'};
 
     & > img {
         width: 100%;
