@@ -8,7 +8,7 @@ import Gallery from '../components/Gallery';
 const GalleryPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
       <Hero page={pageContext.template} />
-      <Gallery background="primaryDark"/>
+      <Gallery type="gallery" background="primaryDark"/>
     </Layout>
 );
 

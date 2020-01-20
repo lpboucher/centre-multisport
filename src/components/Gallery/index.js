@@ -1,17 +1,24 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
+import Img from 'gatsby-image';
 
 import Container from '../../structural/Container';
 import Grid from '../../structural/Grid';
 
-const Gallery = ({background}) => (
+import { useGallery } from "../../hooks/use-gallery";
+
+const Gallery = ({background, type}) => {
+    const { locale } = useIntl();
+    const gallery = useGallery({node_locale: [locale], location: [type]});
+    console.log(gallery)
+    return (    
     <Container background={background}>
         <Grid withFeatured>
-            <p style={{backgroundColor: 'green'}}>1</p>
-            <p style={{backgroundColor: 'red'}}>2</p>
-            <p style={{backgroundColor: 'blue'}}>3</p>
-            <p style={{backgroundColor: 'yellow'}}>4</p>
+            {gallery.images.map(img => 
+                <Img key={`${location}-${img.id}`} fluid={img.fluid} />
+            )}
         </Grid>
     </Container>
-)
+)}
 
 export default Gallery;
