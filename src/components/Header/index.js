@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Navigation from './Navigation';
+import OrgName from './OrgName';
 import Container from '../../structural/Container';
 import Flex from '../../structural/Flex';
 import Logo from './Logo';
@@ -13,6 +14,7 @@ const Header = ({langs}) => {
   const [open, setOpen] = useState(false);
   return (
     <Navigation>
+      <OrgName>Centre Multisport Rosemere</OrgName>
       <Container>
           <Flex justifyBetween alignCenter>
             <Logo />
