@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 const baseStyle = css`
     margin-bottom: ${props => props.noMargin && '0'};
     color: ${({color, theme}) => color ? theme[color] : theme.primaryLight};
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: ${props => {
         if (props.small) return '80%'
@@ -22,6 +21,7 @@ const baseStyle = css`
     }};
     text-transform: uppercase;
     max-width: 100%;
+    line-height: ${({spaced}) => spaced ? '25px' : 'inherit'};
 `
 
 const HeadingOne = styled.h1`

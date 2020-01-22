@@ -4,6 +4,7 @@ import {useIntl} from 'react-intl';
 
 import Container from '../../structural/Container';
 import Flex from '../../structural/Flex';
+import Heading from '../../generic/Heading';
 import Text from '../../generic/Text';
 import Arrow from '../../generic/Arrow';
 
@@ -12,7 +13,7 @@ const Teaser = ({background, title, excerpt, slug, light, withPreview}) => {
     return (
         <Container background={background} withRadius={!withPreview} fixPad>
             <Flex height="100%" column justifyBetween alignCenter>
-                <Text small={!withPreview} bold uppercase color={light ? 'primaryDark' : 'primaryLight'} withPad>{title}</Text>
+                <Heading h3 spaced large={withPreview} bold color={light ? 'primaryDark' : 'primaryLight'} withPad>{title}</Heading>
                 <Text color={light ? 'primaryDark' : 'primaryLight'} withPad>{`${withPreview ? excerpt : `${excerpt.substr(0,100)}...`}`}</Text>
                 <Link to={`/${locale}/article/${slug}`}>
                     <Arrow side={!withPreview} color={light ? 'primaryDark' : 'primaryLight'} length="7px" width="5px"/>

@@ -14,7 +14,7 @@ const FilterButton = styled(Button)`
 const NewsFilter = ({current, categories, pathPrefix}) => {
     return (
         <>
-            <Heading h3 center>
+            <Heading h3 center noMargin>
                 <FormattedMessage id="articleFilter" />
             </Heading>
             <Flex justifyCenter>
