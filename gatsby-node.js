@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
       const prefix = locale;
       const catNames = ['all', ...result.data.categories.edges.map(cat => cat.node.name)];
       catNames.forEach(cat => {
-        const postsPerPage = 1;
+        const postsPerPage = 3;
         const catArticles = cat !== 'all' ? 
           result.data.articles.edges.filter(article => article.node.category.name === cat)
           :
