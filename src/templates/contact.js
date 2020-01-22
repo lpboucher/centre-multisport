@@ -11,7 +11,7 @@ const ContactPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
         <Helmet><script src="https://kwes.io/js/kwes.js"></script></Helmet>
         <Hero page={pageContext.template} />
-        <Contact />
+        <Contact background="primaryDark"/>
         <Map />
     </Layout>
 );

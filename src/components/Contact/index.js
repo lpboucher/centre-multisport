@@ -22,7 +22,7 @@ const unEvenWidths = `
 const Contact = (props) => {
     const {addressLine, city, postalCode, phone, email} = useSiteMetaData();
     return (
-        <Container background="primaryDark">
+        <Container background={props.background}>
             <Heading h2 large>
                 <FormattedMessage id="contactUs" />
             </Heading>

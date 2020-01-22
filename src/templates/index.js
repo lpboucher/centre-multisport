@@ -21,8 +21,8 @@ const MainPage = ({ data, location, pageContext }) => (
     <OfferList/>
     <OrgDescription />
     <News />
-    <Contact />
     <Gallery type="index" background="primaryLight"/>
+    <Contact background="primaryDark"/>
   </Layout>
 );
 
