@@ -9,5 +9,6 @@ module.exports = {
     'formMessage': 'Votre Message',
     'instagramHeader': 'Suivez-Nous sur Instagram @centremultisport',
     'pageNext': 'Page suivante',
-    'pagePrevious': 'Page precedente'
+    'pagePrevious': 'Page precedente',
+    'partners': 'Nos partenaires'
   };
