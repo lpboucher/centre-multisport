@@ -36,6 +36,15 @@ module.exports = {
         displayName: false
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `montserrat`,
+        ],
+        display: 'swap'
+      }
+    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
   ],
