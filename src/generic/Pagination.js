@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Flex from '../structural/Flex';
 import MenuLink from '../generic/MenuLink';
@@ -13,12 +14,12 @@ const Pagination = ({ category, pathPrefix, currentPage, numPages }) => {
         <Flex justifyBetween>
             {!isFirst ? (
                 <MenuLink to={prevPage} rel="prev">
-                ← Previous Page
+                ← <FormattedMessage id="pagePrevious" />
                 </MenuLink>
             ) : <span />}
             {!isLast && (
                 <MenuLink to={nextPage} rel="next">
-                Next Page →
+                <FormattedMessage id="pageNext" /> →
                 </MenuLink>
             )}
         </Flex>

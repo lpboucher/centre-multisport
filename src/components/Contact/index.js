@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Heading from '../../generic/Heading';
 import Container from '../../structural/Container';
@@ -22,7 +23,9 @@ const Contact = (props) => {
     const {addressLine, city, postalCode, phone, email} = useSiteMetaData();
     return (
         <Container background="primaryDark">
-            <Heading h2 large>Contactez-Nous</Heading>
+            <Heading h2 large>
+                <FormattedMessage id="contactUs" />
+            </Heading>
             <Flex css={unEvenWidths}>
                 <Container full>
                     <Form />
@@ -30,7 +33,7 @@ const Contact = (props) => {
                 <Container fixPad>
                     <Text small withPad>{email}</Text>
                     <Text small withPad>{`${addressLine}, ${city}, ${postalCode}\n${phone}`}</Text>
-                    <Text bold uppercase withPad>Nos heures d'ouverture</Text>
+                    <Text bold uppercase withPad><FormattedMessage id="openingHours" /></Text>
                 </Container>
             </Flex>
         </Container>
