@@ -25,7 +25,8 @@ input{
   background-color: none;
 }
 body{
-  overflow-x:hidden;
+  overflow-x: hidden;
+  font-family: montserrat;
 }`;
 
 class LayoutWrapper extends Component {
@@ -59,7 +60,8 @@ class LayoutWrapper extends Component {
               />
               <Header langs={this.langsMenu} />
                 {this.children}
-              <Instafeed />
+              {//<Instafeed />
+  }
               <Footer />
             </>
           </ThemeProvider>
