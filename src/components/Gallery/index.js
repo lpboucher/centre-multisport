@@ -10,7 +10,6 @@ import { useGallery } from "../../hooks/use-gallery";
 const Gallery = ({background, type}) => {
     const { locale } = useIntl();
     const gallery = useGallery({node_locale: [locale], location: [type]});
-    console.log(gallery)
     return (    
     <Container background={background}>
         <Grid withFeatured>
