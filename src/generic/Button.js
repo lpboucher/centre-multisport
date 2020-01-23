@@ -4,7 +4,7 @@ const Button = styled.button`
     text-transform: uppercase;
     border-radius: 5px;
     background-color: ${({secondary, theme}) => (secondary ? theme.secondaryHighlight : theme.primaryHighlight)};
-    color: ${({theme}) => theme.primaryLight};;
+    color: ${({theme}) => theme.primaryLight};
     padding: 10px 15px;
     font-size: ${props => {
         if (props.big) return '20px'
@@ -24,6 +24,11 @@ const Button = styled.button`
             `
         )
     }}
+
+    &:hover {
+        background-color: ${({secondary, theme}) => (secondary ? theme.primaryHighlight : theme.secondaryHighlight)};
+        border: 2px solid ${({secondary, theme}) => (secondary ? theme.primaryHighlight : theme.secondaryHighlight)};
+    }
 `
 
 export default Button

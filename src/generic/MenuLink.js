@@ -3,11 +3,12 @@ import Link from 'gatsby-link';
 
 const MenuLink = styled(Link)`
     text-transform: uppercase;
+    font-weight: bold;
     padding: 0 1rem;
     color: ${({color, theme}) => color ? theme[color] : theme['primaryLight']};
 
     &:hover {
-        color: red;
+        color: ${({theme}) => theme['primaryHighlight']};;
     }
 `;
 
