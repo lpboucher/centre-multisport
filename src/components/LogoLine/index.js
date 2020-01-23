@@ -6,7 +6,7 @@ import Heading from '../../generic/Heading';
 import Flex from '../../structural/Flex';
 import ImageWrapper from '../../generic/ImageWrapper';
 import externat from '../../assets/image/externat-logo-175x114.png';
-import xollox from '../../assets/image/studio-x2-v3.jpg';
+import xollox from '../../assets/image/StudioX2.png';
 
 const LogoLine = ({background, header}) => {
     return (
