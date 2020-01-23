@@ -8,7 +8,7 @@ import { useSiteMetaData } from "../../hooks/use-siteMeta"
 const Footer = () => {
     const {addressLine, city, postalCode, phone} = useSiteMetaData();
     return (
-        <Container background="primaryLight">
+        <Container small background="primaryLight">
             <Text color="primaryDark" small center noMargin>
                 {`${addressLine}, ${city}, ${postalCode} | ${phone}`}
             </Text>

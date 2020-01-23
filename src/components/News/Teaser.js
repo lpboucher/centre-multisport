@@ -11,10 +11,10 @@ import Arrow from '../../generic/Arrow';
 const Teaser = ({background, title, excerpt, slug, light, withPreview}) => {
     const { locale } = useIntl();
     return (
-        <Container background={background} withRadius={!withPreview} fixPad>
+        <Container small={!withPreview} background={background} withRadius={!withPreview} fixPad>
             <Flex height="100%" column justifyBetween alignCenter>
-                <Heading h3 spaced large={withPreview} bold color={light ? 'primaryDark' : 'primaryLight'} withPad>{title}</Heading>
-                <Text color={light ? 'primaryDark' : 'primaryLight'} withPad>{`${withPreview ? excerpt : `${excerpt.substr(0,100)}...`}`}</Text>
+                <Heading h3 spaced noMargin bold color={light ? 'primaryDark' : 'primaryLight'}>{title}</Heading>
+                <Text color={light ? 'primaryDark' : 'primaryLight'} withPad={withPreview}>{`${withPreview ? excerpt : `${excerpt.substr(0,100)}...`}`}</Text>
                 <Link to={`/${locale}/article/${slug}`}>
                     <Arrow side={!withPreview} color={light ? 'primaryDark' : 'primaryLight'} length="7px" width="5px"/>
                 </Link>

@@ -6,7 +6,7 @@ const OrgName = styled(Heading)`
     color: ${({theme}) => theme.primaryDark};
     text-align: center;
     margin: 0;
-    padding: 5px 0;
+    padding: 10px 0;
 `;
 
 export default OrgName;
