@@ -6,6 +6,7 @@ const Jumbotron = styled.div`
     overflow: hidden;
     line-height: 0;
     position: relative;
+    background-color: ${({background, theme}) => background ? theme[background] : 'none'}
 `;
 
 export default Jumbotron;

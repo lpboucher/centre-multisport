@@ -7,7 +7,9 @@ import Overlay from './Overlay';
 import MobileDisplay from '../../structural/MobileWrapper';
 import Spacer from '../../structural/Spacer';
 
-import { useBanner } from "../../hooks/use-banner"
+import { useBanner } from "../../hooks/use-banner";
+
+import backVid from '../../assets/video/background_video.mp4';
 
 const Hero = ({page}) => {
   const { locale } = useIntl();
@@ -17,9 +19,9 @@ const Hero = ({page}) => {
     <>
     {activeBanner ?
       <>
-        <Jumbotron>
-          <Video autoplay muted loop controls>
-              <source src={"https://zippy.gfycat.com/FearfulSoggyFox.webm"} type="video/webm" />
+        <Jumbotron background="primaryDark">
+          <Video autoPlay muted loop>
+              <source src={backVid} type="video/mp4" />
           </Video>
         </Jumbotron>
         <MobileDisplay hideMobile>

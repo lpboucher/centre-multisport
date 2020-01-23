@@ -5,7 +5,8 @@ const Video = styled.video`
     width: 100%;
     height: auto;
     min-height: 100%;
-    background: transparent url('960x360.png') no-repeat;
+    opacity: 0.5;
+    background-color: ${({theme}) => theme.primaryDark};
     background-size: cover;
 `;
 
