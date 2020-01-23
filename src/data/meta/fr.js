@@ -10,5 +10,6 @@ module.exports = {
     'instagramHeader': 'Suivez-Nous sur Instagram @centremultisport',
     'pageNext': 'Page suivante',
     'pagePrevious': 'Page precedente',
-    'partners': 'Nos partenaires'
+    'partners': 'Nos partenaires',
+    'comingSoon': 'A venir'
   };
