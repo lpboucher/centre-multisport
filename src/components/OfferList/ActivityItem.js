@@ -11,8 +11,8 @@ import SpecificationItem from './SpecificationItem';
 
 const HoverableContainer = styled(Flex)`
     &:hover ${Specifications} {
-        background: green;
-        display: block;
+        background: ${({theme}) => theme.primaryHighlight};
+        opacity: 1;
     }
 `
 
@@ -20,12 +20,12 @@ const ActivityItem = ({label, icon, specifications}) => {
     return (
     <HoverableContainer column justifyAround contentCenter height="200px">
         <ItemWrapper width='100px'>
-            <Heading center mid h5 color="primaryDark">{label}</Heading>
+            <Heading center small h3 color="primaryDark">{label}</Heading>
             <ImageWrapper width='100%' height='auto' maxW='100px' maxH='100px'>
                 <Img fluid={icon.fluid}/>
             </ImageWrapper>
         </ItemWrapper>
-        <Specifications>
+        <Specifications justifyCenter alignCenter column>
             {specifications.map(spec => <SpecificationItem key={`label-${spec.label}`} spec={spec.label}/>)}
         </Specifications>
     </HoverableContainer>

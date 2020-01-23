@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-const Specifications = styled.div`
+import Flex from '../../structural/Flex';
+
+const Specifications = styled(Flex)`
     width: 100%;
     height: 100%;
     min-width: 200px;
@@ -8,7 +10,9 @@ const Specifications = styled.div`
     top: 0;
     left: -50px;
     text-align: center;
-    display:none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    border-radius: 10px;
 `
 
 export default Specifications;
