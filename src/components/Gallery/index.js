@@ -15,7 +15,7 @@ const Gallery = ({background, type}) => {
     <Container background={background}>
         <Grid withFeatured>
             {gallery.images.map(img => 
-                <Img key={`${location}-${img.id}`} fluid={img.fluid} />
+                <Img key={`${type}-${img.id}`} fluid={img.fluid} />
             )}
         </Grid>
     </Container>
