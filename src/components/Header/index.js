@@ -14,7 +14,7 @@ const Header = ({langs}) => {
   const [open, setOpen] = useState(false);
   return (
     <Navigation>
-      <OrgName small>Centre Multisport Rosemere</OrgName>
+      <OrgName small>Centre Multisport Rosemère</OrgName>
       <Container small>
           <Flex justifyBetween alignCenter>
             <Logo />
