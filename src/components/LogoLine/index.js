@@ -11,7 +11,7 @@ import xollox from '../../assets/image/StudioX2.png';
 const LogoLine = ({background, header}) => {
     return (
         <Container background={background}>
-            <Heading h2 large>
+            <Heading center h2 large>
                 <FormattedMessage id={header} />
             </Heading>
             <Flex justifyAround>
