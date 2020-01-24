@@ -18,6 +18,8 @@ const Text = styled.p`
         return 'left'
     }};
     padding: ${({withPad}) => withPad ? '10px' : '0'};
+    margin-left: ${({withMargin}) => withMargin ? '10px' : '0'};
+    margin-right: ${({withMargin}) => withMargin ? '10px' : '0'};
     white-space: pre-wrap;
     line-height: ${({spaced}) => spaced ? '200%' : 'normal'};
 

@@ -22,6 +22,7 @@ const baseStyle = css`
     text-transform: uppercase;
     max-width: 100%;
     line-height: ${({spaced}) => spaced ? '25px' : 'inherit'};
+    padding: ${({withPad}) => withPad ? '10px' : '0'};
 `
 
 const HeadingOne = styled.h1`
