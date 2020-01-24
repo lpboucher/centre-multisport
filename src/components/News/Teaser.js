@@ -13,7 +13,7 @@ const Teaser = ({background, title, excerpt, slug, light, withPreview}) => {
     return (
         <Container small={!withPreview} background={background} withRadius={!withPreview} fixPad>
             <Flex height="100%" column justifyBetween alignCenter>
-                <Heading h3 spaced noMargin bold color={light ? 'primaryDark' : 'primaryLight'}>{title}</Heading>
+                <Heading h3 spaced noMargin bold withPad={withPreview} color={light ? 'primaryDark' : 'primaryLight'}>{title}</Heading>
                 <Text color={light ? 'primaryDark' : 'primaryLight'} withPad={withPreview}>{`${withPreview ? excerpt : `${excerpt.substr(0,100)}...`}`}</Text>
                 <Link to={`/${locale}/article/${slug}`}>
                     <Arrow side={!withPreview} color={light ? 'primaryDark' : 'primaryLight'} length="7px" width="5px"/>
