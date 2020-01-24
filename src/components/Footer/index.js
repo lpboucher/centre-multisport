@@ -9,10 +9,10 @@ const Footer = () => {
     const {addressLine, city, postalCode, phone} = useSiteMetaData();
     return (
         <Container small background="primaryLight">
-            <Text color="primaryDark" small center noMargin>
+            <Text color="primaryDark" small center>
                 {`${addressLine}, ${city}, ${postalCode} | ${phone}`}
             </Text>
-            <Text color="primaryDark" small center noMargin>
+            <Text color="primaryDark" small center>
                 Facebook | Instagram
             </Text>
         </Container>
