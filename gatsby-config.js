@@ -45,6 +45,12 @@ module.exports = {
         display: 'swap'
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/assets/image/CDCSR_logotype-coul_seul (1)-1.png`
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
   ],
