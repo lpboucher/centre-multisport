@@ -27,13 +27,14 @@ const Contact = (props) => {
                 <FormattedMessage id="contactUs" />
             </Heading>
             <Flex css={unEvenWidths}>
-                <Container full>
+                <Container small full>
                     <Form />
                 </Container>
                 <Container fixPad>
-                    <Text small withPad>{email}</Text>
-                    <Text small withPad>{`${addressLine}, ${city}, ${postalCode}\n${phone}`}</Text>
-                    <Text bold uppercase withPad><FormattedMessage id="openingHours" /></Text>
+                    <Text small withPad withMargin>{email}</Text>
+                    <Text small withPad withMargin>{`${addressLine}, ${city}, ${postalCode}\n${phone}`}</Text>
+                    <Text bold uppercase withPad withMargin><FormattedMessage id="openingHours" /></Text>
+                    <Text small withPad withMargin>Lundi au Dimanche: 9:00 - 17:00</Text>
                 </Container>
             </Flex>
         </Container>
