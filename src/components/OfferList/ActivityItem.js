@@ -18,10 +18,10 @@ const HoverableContainer = styled(Flex)`
 
 const ActivityItem = ({label, icon, specifications}) => {
     return (
-    <HoverableContainer column justifyAround contentCenter height="200px">
+    <HoverableContainer column justifyAround contentCenter height="150px">
         <ItemWrapper width='100px'>
             <Heading center small h3 color="primaryDark">{label}</Heading>
-            <ImageWrapper width='100%' height='auto' maxW='100px' maxH='100px'>
+            <ImageWrapper width='100px' height='100px' maxW='100px' maxH='100px'>
                 <Img fluid={icon.fluid}/>
             </ImageWrapper>
         </ItemWrapper>
