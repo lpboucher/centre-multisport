@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Helmet from 'react-helmet';
 
 import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
@@ -12,11 +11,6 @@ import Gallery from '../components/Gallery';
 
 const MainPage = ({ data, location, pageContext }) => (
   <Layout data={data} location={location}>
-    <Helmet>
-      <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-      <script src="https://kwes.io/js/kwes.js"></script>
-    </Helmet>
     <Hero page={pageContext.template} />
     <OfferList/>
     <OrgDescription />

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Helmet from 'react-helmet'
 
 import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
@@ -9,7 +8,6 @@ import Map from '../components/Map';
 
 const ContactPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
-        <Helmet><script src="https://kwes.io/js/kwes.js"></script></Helmet>
         <Hero page={pageContext.template} />
         <Contact background="primaryDark"/>
         <Map />
