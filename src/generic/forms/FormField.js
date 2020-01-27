@@ -34,9 +34,9 @@ const FormField = ({name, label, placeholder, type, isTextArea, ...props}) => {
                 <Label htmlFor={name}>{label}</Label>
             }
             {isTextArea ?
-                <TextArea name={name} placeholder={placeholder} />
+                <TextArea id={name} name={name} placeholder={placeholder} />
                 :
-                <Input type={type} name={name} placeholder={placeholder}/>
+                <Input id={name} type={type} name={name} placeholder={placeholder}/>
             }
         </StyledFormField>
     );
