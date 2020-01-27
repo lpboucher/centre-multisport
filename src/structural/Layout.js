@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset-advanced';
 import Header from '../components/Header';
@@ -44,7 +44,7 @@ class LayoutWrapper extends Component {
     this.i18nMessages = require(`../data/meta/${this.langKey}`);
   }
   render() {
-    const schema = schemaBuilder('WebSite', `${location.origin}`);
+    const schema = schemaBuilder('WebSite', `https://practical-dubinsky-89e88c.netlify.com/`);
     return (
       <IntlProvider
         locale={this.langKey}

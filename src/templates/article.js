@@ -11,7 +11,7 @@ import { schemaBuilder } from '../utils/SEO/schema';
 const ArticlePage = ({data, location, pageContext}) => {
   const schema = schemaBuilder(
     'Article',
-    `${location.href}`,
+    `https://practical-dubinsky-89e88c.netlify.com/${pageContext.locale}/article/${pageContext.slug}`,
     data.contentfulNewsItem.title,
     );
   return (
