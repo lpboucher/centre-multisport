@@ -10,7 +10,7 @@ export const useGallery = (filter) => {
               location
               images {
                 id
-                fluid {
+                fluid(maxWidth: 635, maxHeight: 415) {
                     ...GatsbyContentfulFluid
                 }
               }

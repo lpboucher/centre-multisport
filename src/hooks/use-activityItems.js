@@ -11,7 +11,7 @@ export const useActivityItems = (filter) => {
               node_locale
               icon {
                 id
-                fluid {
+                fluid(maxWidth: 100) {
                   ...GatsbyContentfulFluid
                 }
               }
