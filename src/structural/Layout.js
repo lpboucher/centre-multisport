@@ -4,9 +4,10 @@ import reset from 'styled-reset-advanced';
 import Header from '../components/Header';
 import Instafeed from '../components/Instagram';
 import Footer from '../components/Footer';
-import Helmet from 'react-helmet'
+import SEO from '../utils/SEO/SEO';
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { IntlProvider, addLocaleData } from 'react-intl';
+import { schemaBuilder } from '../utils/SEO/schema';
 import 'intl';
 import { theme } from '../theme';
 
@@ -43,6 +44,7 @@ class LayoutWrapper extends Component {
     this.i18nMessages = require(`../data/meta/${this.langKey}`);
   }
   render() {
+    const schema = schemaBuilder('WebSite', `${location.origin}`);
     return (
       <IntlProvider
         locale={this.langKey}
@@ -51,13 +53,12 @@ class LayoutWrapper extends Component {
         <ThemeProvider theme={theme}>
           <>
             <GlobalStyle />
-              <Helmet
-                title="Centre Multisport"
-                meta={[
-                  { name: 'description', content: 'Sample' },
-                  { name: 'keywords', content: 'sample, something' },
-                ]}
-              />
+              <SEO 
+                      title={'Centre Multisport Rosemere'}
+                      description={'Le centre multisport par excellence sur la rive-nord'}
+                      keywords={['sport, soccer, centre sportif, rosemere, football, sport interieur']}
+                      schema={schema}
+                  />
               <Header langs={this.langsMenu} />
                 {this.children}
               {//<Instafeed />
