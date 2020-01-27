@@ -42,7 +42,6 @@ module.exports = {
         fonts: [
           `montserrat`,
         ],
-        display: 'swap'
       }
     },
     {
