@@ -1,15 +1,12 @@
 import React from 'react';
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import Container from '../../structural/Container';
-import Heading from '../../generic/Heading';
-import Text from '../../generic/Text';
+import RichText from '../../structural/RichText';
 
 const Article = ({title, content}) => (
-    <Container background="primaryDark">
-        <Heading h1 large color="primaryLight">{title}</Heading>
-        <Text justify large spaced>{documentToReactComponents(content.json)}</Text>
-    </Container>
+    <RichText 
+        title={title}
+        content={content}
+    />
 )
 
 export default Article;
