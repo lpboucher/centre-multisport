@@ -27,21 +27,13 @@ const MainPage = ({ data, location, pageContext }) => (
 );
 
 export const query = graphql`
-  query SiteMain($locale: String!) {
+  query SiteMain {
     site {
         siteMetadata{
           languages {
             defaultLangKey
             langs
           }
-        }
-    }
-    test: allContentfulTest(filter: { node_locale: { eq: $locale } }) {
-        edges {
-            node {
-                title
-                node_locale
-            }
         }
     }
   }
