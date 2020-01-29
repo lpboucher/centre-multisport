@@ -4,12 +4,18 @@ module.exports = {
     'contactUs': 'Contactez-Nous',
     'openingHours': 'Heures d\'ouverture',
     'submitButton': 'Envoyer',
-    'formName': 'Votre Nom',
-    'formEmail': 'Votre Courriel',
-    'formMessage': 'Votre Message',
+    'formName': 'Votre nom',
+    'formEmail': 'Votre courriel',
+    'formMessage': 'Votre message',
     'instagramHeader': 'Suivez-Nous sur Instagram @centremultisport',
     'pageNext': 'Page suivante',
     'pagePrevious': 'Page precedente',
     'partners': 'Nos partenaires',
-    'comingSoon': 'A venir'
+    'comingSoon': 'A venir',
+    'weekdays': 'Lundi au Vendredi',
+    'weekends': 'Samedi et Dimanche',
+    'office': 'Bureau',
+    'field': 'Terrain',
+    'ifRequired': 'Au besoin',
+    'moreNews': 'Plus de nouvelles'
   };

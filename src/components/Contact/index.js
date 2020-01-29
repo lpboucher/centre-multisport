@@ -30,11 +30,24 @@ const Contact = (props) => {
                 <Container small full>
                     <Form />
                 </Container>
-                <Container fixPad>
+                <Container small full>
                     <Text small withPad withMargin>{email}</Text>
                     <Text small withPad withMargin>{`${addressLine}, ${city}, ${postalCode}\n${phone}`}</Text>
                     <Text bold uppercase withPad withMargin><FormattedMessage id="openingHours" /></Text>
-                    <Text small withPad withMargin>Lundi au Dimanche: 9:00 - 17:00</Text>
+                    <Text small withPad withMargin noMargin>
+                        <FormattedMessage id="weekdays" />
+                        <br/>
+                        <FormattedMessage id="office" />: 9h00 - 17h00
+                        <br/>
+                        <FormattedMessage id="field" />: 16h30 - 23h55
+                    </Text>
+                    <Text small withPad withMargin noMargin>
+                        <FormattedMessage id="weekends" />
+                        <br/>
+                        <FormattedMessage id="office" />: <FormattedMessage id="ifRequired" />
+                        <br/>
+                        <FormattedMessage id="field" />: 7h00 - 23h55
+                    </Text>
                 </Container>
             </Flex>
         </Container>
