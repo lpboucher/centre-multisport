@@ -24,6 +24,7 @@ const ArticlePage = ({data, location, pageContext}) => {
         <Article 
             title={data.contentfulNewsItem.title}
             content={data.contentfulNewsItem.content}
+            gallery={data.contentfulNewsItem.imageBand}
         />
     </Layout>
   )
@@ -43,6 +44,15 @@ export const query = graphql`
         title
         content {
             json
+        }
+        imageBand {
+          id
+          file {
+            url
+          }
+          fluid {
+            ...GatsbyContentfulFluid
+        }
         }
     }
   }
