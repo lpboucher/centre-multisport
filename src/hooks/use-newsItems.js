@@ -21,6 +21,7 @@ export const useNewsItems = (filter) => {
                 title
                 slug
                 appearsOnMainSlider
+                date
             }
         }
       }

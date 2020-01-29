@@ -13,6 +13,7 @@ const NewsSlide = ({background, newsItem, isLight}) => {
             <Teaser 
                 background={background}
                 title={newsItem.title}
+                date={newsItem.date}
                 excerpt={newsItem.excerpt}
                 slug={newsItem.slug}
                 light={isLight}

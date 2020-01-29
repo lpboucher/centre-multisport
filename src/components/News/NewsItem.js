@@ -25,6 +25,7 @@ const NewsItem = ({background, newsItem, withPreview, isLight}) => {
                     background={background}
                     title={newsItem.title}
                     excerpt={newsItem.excerpt}
+                    date={newsItem.date}
                     slug={newsItem.slug}
                     light={isLight}
                     withPreview

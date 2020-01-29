@@ -58,7 +58,7 @@ export const query = graphql`
       }
     }
     allCategories: allContentfulNewsItem(
-      sort: {fields: createdAt, order: ASC}
+      sort: {fields: date, order: DESC}
       filter: {node_locale: {eq: $locale}}
       limit: $limit
       skip: $skip
@@ -83,6 +83,7 @@ export const query = graphql`
         category {
           name
         }
+        date
       }
     }
   }
