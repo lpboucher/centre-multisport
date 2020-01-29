@@ -18,6 +18,7 @@ export const useActivityItems = (filter) => {
               specifications {
                 label
               }
+              order
             }
           }
       }
