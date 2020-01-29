@@ -9,13 +9,13 @@ import LogoLine from '../components/LogoLine';
 const AboutPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
         <Hero page={pageContext.template} />
-        <About />
+        <About {...data.contentfulAbout}/>
         <LogoLine background="primaryDark" header="partners"/>
     </Layout>
 );
 
 export const query = graphql`
-  query SiteAbout {
+  query ($slug: String!, $locale: String!) {
     site {
         siteMetadata{
           languages {
@@ -23,6 +23,13 @@ export const query = graphql`
             langs
           }
         }
+    }
+    contentfulAbout(slug: {eq: $slug}, node_locale: {eq: $locale}) {
+      slug
+      title
+      content {
+        json
+      }
     }
   }
 `;

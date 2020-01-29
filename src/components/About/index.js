@@ -5,13 +5,13 @@ import RichText from '../../structural/RichText';
 
 import { useAbout } from "../../hooks/use-about";
 
-const About = () => {
+const About = ({title, content}) => {
     const { locale } = useIntl();
     const about = useAbout({node_locale: [locale], slug: 'about'});
     return (
         <RichText 
-            title={about.title}
-            content={about.content}
+            title={title}
+            content={content}
         />
     )
 }
