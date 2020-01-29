@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   locales.forEach((locale) => {
     const prefix = locale;
-    ['index', 'contact', 'gallery', 'about', 'calendar'].forEach((template) => {
+    ['index', 'contact', 'gallery', 'calendar'].forEach((template) => {
       const slug = template === 'index' ? '' : `/${template}`;
       createPage({
         path: `/${prefix}${slug}`,
@@ -42,34 +42,40 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
+          about: allContentfulAbout(filter: {node_locale: { eq: "${locale}" } }) {
+            edges {
+              node {
+                title
+                content {
+                  json
+                }
+                node_locale
+                slug
+              }
+            }
+          }
         }
       `).then((result) => {
       const prefix = locale;
-      const catNames = ['all', ...result.data.categories.edges.map(cat => cat.node.name)];
-      catNames.forEach(cat => {
-        const postsPerPage = 3;
-        const catArticles = cat !== 'all' ? 
-          result.data.articles.edges.filter(article => article.node.category.name === cat)
-          :
-          result.data.articles.edges;
-        const numPages = Math.ceil(catArticles.length / postsPerPage);
-        const template = 'news';
-        Array.from({ length: numPages }).forEach((_, i) => {
-          createPage({
-            path: `/${prefix}/${template}${cat !== 'all' ? `/${cat.toLowerCase()}` : ''}${i === 0 ? `/` : `/${i + 1}`}`,
-            component: path.resolve(`./src/templates/${template}.js`),
-            context: {
-              category: cat !== 'all' ? cat : null,
-              locale: locale,
-              limit: postsPerPage,
-              skip: i * postsPerPage,
-              numPages,
-              currentPage: i + 1,
-              showAll: cat === 'all'
-            }
-          });
+      const postsOnFirstPage = 5;
+      const postsPerPage = 10;
+      const numPages = Math.ceil(((result.data.articles.edges.length - postsOnFirstPage) / postsPerPage)) + 1;
+      const template = 'news';
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: `/${prefix}/${template}${i === 0 ? `/` : `/${i + 1}`}`,
+          component: path.resolve(`./src/templates/${template}.js`),
+          context: {
+            locale: locale,
+            limit: i === 0 ? postsOnFirstPage : postsPerPage,
+            skip: i === 0 ? 0 : ((i * postsPerPage) - postsOnFirstPage),
+            numPages: numPages,
+            currentPage: i + 1,
+            showAll: true
+          }
         });
       });
+
       result.data.articles.edges.forEach(item => {
         const template = 'article';
         const prefix = item.node.node_locale;
@@ -84,6 +90,22 @@ exports.createPages = async ({ graphql, actions }) => {
           },
         });
       });
-    })}
-  ))
+
+      result.data.about.edges.forEach(item => {
+        const template = 'about';
+        const prefix = item.node.node_locale;
+        const p = `/${prefix}/${item.node.slug}`;
+        createPage({
+          path: p,
+          component: path.resolve(`./src/templates/${template}.js`),
+          context: {
+            locale: item.node.node_locale,
+            template: template,
+            slug: item.node.slug
+          },
+        });
+      });
+
+    })
+  }))
 }
