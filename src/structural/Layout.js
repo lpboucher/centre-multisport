@@ -10,6 +10,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import { schemaBuilder } from '../utils/SEO/schema';
 import 'intl';
 import { theme } from '../theme';
+import "react-image-lightbox/style.css";
 
 //check if polyfills required for older browsers
 /*import en from 'react-intl/locale-data/en';
