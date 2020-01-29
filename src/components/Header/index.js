@@ -9,12 +9,13 @@ import Menu from './Menu';
 import SelectLanguage from './SelectLanguage';
 import Burger from './Burger';
 import MobileMenu from './MobileMenu';
+import Announcement from '../Announcement';
 
 const Header = ({langs}) => {
   const [open, setOpen] = useState(false);
   return (
     <Navigation>
-      <OrgName small>Centre Multisport Rosemère</OrgName>
+      <OrgName small>Centre Multisports Rosemère</OrgName>
       <Container small>
           <Flex justifyBetween alignCenter>
             <Logo />
@@ -23,6 +24,7 @@ const Header = ({langs}) => {
             <Burger open={open} setOpen={setOpen} />
           </Flex>
       </Container>
+      <Announcement />
       <MobileMenu open={open} setOpen={setOpen} />
     </Navigation>
   )
