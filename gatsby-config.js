@@ -5,10 +5,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Centre Multisport Rosemere`,
+    title: `Centre Multisports Rosemere`,
     addressLine: `354 Montée Lesage`,
     city: `Rosemère`,
-    postalCode: `J7A4S2`,
+    postalCode: `J7A 4S2`,
     phone: `+1 450 621-2520`,
     email: `cdcsr@videotron.ca`,
     languages
