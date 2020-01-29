@@ -1,11 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import {useIntl} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
+import Link from 'gatsby-link';
 
 import Container from '../../structural/Container';
+import Flex from '../../structural/Flex';
 import NewsSlider from './NewsSlider';
 import NewsSlide from '../NewsSlider/NewsSlide';
+import Button from '../../generic/Button';
 
-import { useNewsItems } from "../../hooks/use-newsItems"
+import { useNewsItems } from "../../hooks/use-newsItems";
+
+const StyledFlex = styled(Flex)`
+    margin-top: 25px;
+`
 
 const News = () => {
     const { locale } = useIntl();
@@ -47,6 +56,13 @@ const News = () => {
                     />
                 )}
             </NewsSlider>
+            <StyledFlex justifyCenter>
+                <Button>
+                    <Link to={`${locale}/news`}>
+                        <FormattedMessage id="moreNews" />
+                    </Link>
+                </Button>
+            </StyledFlex>
         </Container>
     )
 }
