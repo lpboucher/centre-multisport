@@ -28,9 +28,11 @@
     "react-dom": "^16.6.3",
     "react-headroom": "^3.0.0",
     "react-helmet": "^5.2.0",
+    "react-image-lightbox": "^5.1.1",
     "react-instafeed": "^1.0.0",
     "react-intl": "^3.9.2",
     "react-slick": "^0.25.2",
+    "react-ticker": "^1.2.2",
     "styled-components": "^4.4.1",
     "styled-reset-advanced": "^1.0.2"
   },
