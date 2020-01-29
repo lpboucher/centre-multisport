@@ -14,7 +14,8 @@ const NewsList = ({news, pages, categories}) => {
     const backgrounds = ['primaryLight', 'primaryHighlight', 'secondaryHighlight'];
     return (
         <Container background="primaryDark">
-            <NewsFilter current={pages.category} categories={categories} pathPrefix={`/${locale}/news`}/>
+            {//<NewsFilter current={pages.category} categories={categories} pathPrefix={`/${locale}/news`}/>
+            }
             {news.map((item, index) =>
                 <NewsItem
                     key={item.node.id}
