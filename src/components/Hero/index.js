@@ -9,8 +9,6 @@ import Spacer from '../../structural/Spacer';
 
 import { useBanner } from "../../hooks/use-banner";
 
-import backVid from '../../assets/video/background_video.mp4';
-
 const Hero = ({page}) => {
   const { locale } = useIntl();
   const banners = useBanner({node_locale: [locale]});
@@ -21,7 +19,7 @@ const Hero = ({page}) => {
       <>
         <Jumbotron background="primaryDark">
           <Video autoPlay muted loop>
-              <source src={backVid} type="video/mp4" />
+              <source src={activeBanner.content.file.url} type="video/mp4" />
           </Video>
         </Jumbotron>
         <MobileDisplay hideMobile>
@@ -29,7 +27,7 @@ const Hero = ({page}) => {
         </MobileDisplay>
       </>
       :
-      <Spacer padding={`37px 0`}/>
+      <Spacer padding={`70px 0`}/>
       }
     </>
   )
