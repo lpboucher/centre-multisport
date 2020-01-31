@@ -45,7 +45,8 @@ class LayoutWrapper extends Component {
     this.i18nMessages = require(`../data/meta/${this.langKey}`);
   }
   render() {
-    const isHome = location.pathname === '/en' || location.pathname === '/fr' || location.pathname === '/fr/' || location.pathname === '/en/';
+    const { pathname } = this.props.location;
+    const isHome = pathname === '/en' || pathname === '/fr' || pathname === '/fr/' || pathname === '/en/';
     const schema = schemaBuilder('WebSite', `https://practical-dubinsky-89e88c.netlify.com/`);
     return (
       <IntlProvider
