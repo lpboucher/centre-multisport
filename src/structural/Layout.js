@@ -45,6 +45,7 @@ class LayoutWrapper extends Component {
     this.i18nMessages = require(`../data/meta/${this.langKey}`);
   }
   render() {
+    const isHome = location.pathname === '/en' || location.pathname === '/fr' || location.pathname === '/fr/' || location.pathname === '/en/';
     const schema = schemaBuilder('WebSite', `https://practical-dubinsky-89e88c.netlify.com/`);
     return (
       <IntlProvider
@@ -55,12 +56,12 @@ class LayoutWrapper extends Component {
           <>
             <GlobalStyle />
               <SEO 
-                      title={'Centre Multisport Rosemere'}
+                      title={'Centre Multisports Rosemere'}
                       description={'Le centre multisport par excellence sur la rive-nord'}
                       keywords={['sport, soccer, centre sportif, rosemere, football, sport interieur']}
                       schema={schema}
                   />
-              <Header langs={this.langsMenu} />
+              <Header langs={this.langsMenu} isMainPage={isHome} />
                 {this.children}
               {//<Instafeed />
   }

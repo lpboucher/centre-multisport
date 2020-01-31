@@ -11,10 +11,10 @@ import Burger from './Burger';
 import MobileMenu from './MobileMenu';
 import Announcement from '../Announcement';
 
-const Header = ({langs}) => {
+const Header = ({langs, isMainPage}) => {
   const [open, setOpen] = useState(false);
   return (
-    <Navigation>
+    <Navigation isMainPage={isMainPage}>
       <OrgName small>Centre Multisports Rosemère</OrgName>
       <Container small>
           <Flex justifyBetween alignCenter>
@@ -24,7 +24,7 @@ const Header = ({langs}) => {
             <Burger open={open} setOpen={setOpen} />
           </Flex>
       </Container>
-      <Announcement />
+      <Announcement isMainPage={isMainPage} />
       <MobileMenu open={open} setOpen={setOpen} />
     </Navigation>
   )

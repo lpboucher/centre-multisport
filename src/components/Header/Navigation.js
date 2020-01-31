@@ -6,13 +6,11 @@ const Navigation = styled(Headroom)`
     width: 100%;
 
     & > .headroom--unfixed {
-        background-color: transparent;
-        color: white;
+        background-color: ${({theme, isMainPage}) => isMainPage ? theme.primaryDark : 'transparent'};
     }
 
     & > .headroom--pinned {
-        background-color: ${({theme}) => theme.primaryDark};;
-        color: white;
+        background-color: ${({theme}) => theme.primaryDark};
     }
 `;
 
