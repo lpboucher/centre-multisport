@@ -62,8 +62,9 @@ exports.createPages = async ({ graphql, actions }) => {
       const numPages = Math.ceil(((result.data.articles.edges.length - postsOnFirstPage) / postsPerPage)) + 1;
       const template = 'news';
       Array.from({ length: numPages }).forEach((_, i) => {
+        const pathSuffix = i === 0 ? '' : `/${i + 1}`
         createPage({
-          path: `/${prefix}/${template}${i === 0 ? `/` : `/${i + 1}`}`,
+          path: `/${prefix}/${template}/${pathSuffix}`,
           component: path.resolve(`./src/templates/${template}.js`),
           context: {
             locale: locale,

@@ -10,7 +10,7 @@ module.exports = {
     city: `Rosemère`,
     postalCode: `J7A 4S2`,
     phone: `+1 450 621-2520`,
-    email: `cdcsr@videotron.ca`,
+    email: `multiportsrosemere@outlook.com`,
     languages
   },
   plugins: [
@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
-        langKeyForNull: 'any',
+        langKeyForNull: 'fr',
         langKeyDefault: languages.defaultLangKey,
         useLangKeyLayout: false
       }
