@@ -4,7 +4,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 const mapApiKey = `${process.env.GATSBY_MAP_API_TOKEN}`;
 
 const Location = ({google}) => {
-    const position = { lat: 45.648750, lng: -73.784890 }
+    const position = { lat: 45.655874, lng: -73.789835 }
     return (
         <div style={{
             position: "relative",

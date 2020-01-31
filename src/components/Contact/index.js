@@ -37,16 +37,16 @@ const Contact = (props) => {
                     <Text small withPad withMargin noMargin>
                         <FormattedMessage id="weekdays" />
                         <br/>
-                        <FormattedMessage id="office" />: 9h00 - 17h00
+                        <FormattedMessage id="field" /> : 16 h 30 - 23 h 55
                         <br/>
-                        <FormattedMessage id="field" />: 16h30 - 23h55
+                        <FormattedMessage id="office" /> : 9 h 00 - 17 h 00
                     </Text>
                     <Text small withPad withMargin noMargin>
                         <FormattedMessage id="weekends" />
                         <br/>
-                        <FormattedMessage id="office" />: <FormattedMessage id="ifRequired" />
+                        <FormattedMessage id="field" /> : 7 h 00 - 23 h 55
                         <br/>
-                        <FormattedMessage id="field" />: 7h00 - 23h55
+                        <FormattedMessage id="office" /> : <FormattedMessage id="ifRequired" />
                     </Text>
                 </Container>
             </Flex>

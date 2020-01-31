@@ -12,10 +12,10 @@ module.exports = {
     'pagePrevious': 'Previous page',
     'partners': 'Our Partners',
     'comingSoon': 'Coming Soon',
-    'weekdays': 'Monday to Friday',
-    'weekends': 'Saturday and Sunday',
+    'weekdays': 'Monday to friday',
+    'weekends': 'Saturday and sunday',
     'office': 'Office',
     'field': 'Fields',
-    'ifRequired': 'If required',
+    'ifRequired': 'as required',
     'moreNews': 'View more news'
   };
