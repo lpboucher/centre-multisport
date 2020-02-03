@@ -57,10 +57,10 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       `).then((result) => {
       const prefix = locale;
-      const postsOnFirstPage = 5;
-      const postsPerPage = 10;
-      const numPages = Math.ceil(((result.data.articles.edges.length - postsOnFirstPage) / postsPerPage)) + 1;
-      const template = 'news';
+      let postsPerPage = 5;
+      const articles = result.data.articles.edges;
+      let numPages = Math.min(Math.ceil((articles.length / postsPerPage)), 2);
+      let template = 'news';
       Array.from({ length: numPages }).forEach((_, i) => {
         const pathSuffix = i === 0 ? '' : `/${i + 1}`
         createPage({
@@ -68,11 +68,29 @@ exports.createPages = async ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/${template}.js`),
           context: {
             locale: locale,
-            limit: i === 0 ? postsOnFirstPage : postsPerPage,
-            skip: i === 0 ? 0 : ((i * postsPerPage) - postsOnFirstPage),
+            limit: postsPerPage,
+            skip: i * postsPerPage,
             numPages: numPages,
             currentPage: i + 1,
             showAll: true
+          }
+        });
+      });
+
+      postsPerPage = 10;
+      numPages = Math.ceil((articles.length / postsPerPage));
+      template = 'archive';
+      Array.from({ length: numPages }).forEach((_, i) => {
+        const pathSuffix = i === 0 ? '' : `/${i + 1}`
+        createPage({
+          path: `/${prefix}/${template}/${pathSuffix}`,
+          component: path.resolve(`./src/templates/${template}.js`),
+          context: {
+            locale: locale,
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages: numPages,
+            currentPage: i + 1
           }
         });
       });
