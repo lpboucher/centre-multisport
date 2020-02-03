@@ -6,6 +6,7 @@ import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
 import Container from '../structural/Container';
 import Text from '../generic/Text';
+import LogoLine from '../components/LogoLine';
 
 const CalendarPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
@@ -14,6 +15,7 @@ const CalendarPage = ({data, location, pageContext}) => (
         <Text>
             <FormattedMessage id="comingSoon" />
         </Text>
+        <LogoLine background="primaryDark" header="partners"/>
     </Container>
     </Layout>
 );
