@@ -5,11 +5,29 @@ import Img from 'gatsby-image';
 
 import Flex from '../../structural/Flex';
 import ImageWrapper from '../../generic/ImageWrapper';
+import Specifications from '../OfferList/Specifications';
+
 
 const GalleryItem = styled(ImageWrapper)`
-    & > div {
+    position: relative;
+    cursor: pointer;
+    & > div:first-child {
         height: 100%;
     }
+
+    &:hover ${Specifications} {
+        opacity: 1;
+    }
+`
+const ItemDescription = styled(Specifications)`
+    background: ${({theme}) => theme.primaryDark};
+    color: white;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    height: initial;
+    padding: 10px;
+    border-radius: 0;
 `
 
 const ImageGallery = ({images}) => {
@@ -20,8 +38,13 @@ const ImageGallery = ({images}) => {
         <>
             <Flex height="200px">
                 {images.map((img, index) =>
-                    <GalleryItem onClick={() => {setPhotoIndex(index); setLightboxOpen(true)}} width="25%" height="100%">
-                        <Img key={img.id} fluid={img.fluid} />
+                    <GalleryItem key={img.id} onClick={() => {setPhotoIndex(index); setLightboxOpen(true)}} width="25%" height="100%">
+                        <Img fluid={img.fluid} />
+                    <ItemDescription justifyCenter alignCenter column>
+                        {//img.description
+                        }
+                        description
+                    </ItemDescription>
                     </GalleryItem>
                 )}
             </Flex>
