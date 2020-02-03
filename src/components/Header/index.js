@@ -13,6 +13,7 @@ import Burger from './Burger';
 import MobileMenu from './MobileMenu';
 import Announcement from '../Announcement';
 import Button from '../../generic/Button';
+import SocialButton from './SocialButton';
 
 import FB from '../../assets/image/iconmonstr-facebook-5.svg';
 import IG from '../../assets/image/iconmonstr-instagram-15.svg';
@@ -37,6 +38,8 @@ const Header = ({langs, isMainPage}) => {
             <Logo />
             <Menu />
             <SelectLanguage langs={langs} />
+            <SocialButton />
+            {/*<Button>
             <Flex>
               <SocialIcon link="http://www.facebook.com" width="30px">
                 <FB width={'30px'} fill={'#DCDCDC'}/>
@@ -45,6 +48,7 @@ const Header = ({langs, isMainPage}) => {
                 <IG width={'30px'} fill={'#DCDCDC'}/>
               </SocialIcon>
             </Flex>
+            </Button>*/}
             <Burger open={open} setOpen={setOpen} />
           </Flex>
       </MenuWrapper>

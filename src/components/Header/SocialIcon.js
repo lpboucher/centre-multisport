@@ -4,11 +4,9 @@ import ImageWrapper from '../../generic/ImageWrapper';
 
 const SocialIcon = ({link, width, children}) => {
     return (
-        <a href={`${link}`}>
-            <ImageWrapper height="auto" width={width} margin={"0 5px"}>
+            <ImageWrapper height="auto" width={width} margin={"0 1px"}>
                 {children}
             </ImageWrapper>
-        </a>
     );
 };
 

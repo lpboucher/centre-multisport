@@ -13,6 +13,7 @@ const StyledBurger = styled.button`
   cursor: pointer;
   padding: 0;
   z-index: 10;
+  margin-left: 5px;
 
   @media ${device.tabletMid} {
     display: none;
