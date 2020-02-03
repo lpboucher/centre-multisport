@@ -7,7 +7,7 @@ import MenuLink from '../../generic/MenuLink';
 
 const StyledSelect = styled.button`
   margin-left: auto;
-  @media ${device.tablet} {
+  @media ${device.tabletMid} {
     margin-left: initial;
   }
 `

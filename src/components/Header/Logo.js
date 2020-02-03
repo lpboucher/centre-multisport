@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import {useIntl} from 'react-intl';
 
 import ImageWrapper from '../../generic/ImageWrapper';
-import logo from '../../assets/image/CDCSR Logo.png'
+import logo from '../../assets/image/CDCSR Logo.png';
 
 const Logo = () => {
     const { locale } = useIntl();

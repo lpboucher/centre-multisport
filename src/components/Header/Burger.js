@@ -14,7 +14,7 @@ const StyledBurger = styled.button`
   padding: 0;
   z-index: 10;
 
-  @media ${device.tablet} {
+  @media ${device.tabletMid} {
     display: none;
   }
   

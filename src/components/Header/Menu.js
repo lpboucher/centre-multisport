@@ -6,14 +6,17 @@ import { device } from '../../theme';
 import Flex from '../../structural/Flex';
 import MenuLink from '../../generic/MenuLink';
 
-import { useNavigation } from "../../hooks/use-navigation"
+import { useNavigation } from "../../hooks/use-navigation";
 
 export const StyledMenu = styled.nav`
-  margin: 0 auto;
   display: none;
 
-  @media ${device.tablet} {
-        display: block;
+    @media ${device.tabletMid} {
+        display: block;    
+    }
+
+    @media ${device.laptop} {
+        margin: 0 auto;
     }
 `;
 
@@ -22,7 +25,7 @@ const Menu = () => {
     const { items } = useNavigation({node_locale: [locale], type: ["Main"]});
     return (
         <StyledMenu>
-            <Flex>
+            <Flex alignCenter>
                 {items.map(item => 
                     <MenuLink
                         key={item.id}
