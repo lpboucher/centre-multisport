@@ -2,14 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../structural/Layout';
-import Spacer from '../structural/Spacer';
+import Hero from '../components/Hero';
 import News from '../components/News';
 
 const NewsListPage = ({data, location, pageContext}) => {
   const news = data.withCategories ? data.withCategories.edges : data.allCategories.edges;
   return (
     <Layout data={data} location={location}>
-      <Spacer padding={`37px 0`}/>
+      <Hero />
       <News 
         news={news}
         pages={{...pageContext}}
