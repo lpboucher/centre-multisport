@@ -25,6 +25,7 @@ const ArticlePage = ({data, location, pageContext}) => {
             title={data.contentfulNewsItem.title}
             content={data.contentfulNewsItem.content}
             gallery={data.contentfulNewsItem.imageBand}
+            date={data.contentfulNewsItem.date}
         />
     </Layout>
   )
@@ -52,8 +53,9 @@ export const query = graphql`
           }
           fluid {
             ...GatsbyContentfulFluid
+          }
         }
-        }
+        date
     }
   }
 `
