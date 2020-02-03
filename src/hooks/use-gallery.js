@@ -13,6 +13,10 @@ export const useGallery = (filter) => {
                 fluid(maxWidth: 635, maxHeight: 415) {
                     ...GatsbyContentfulFluid
                 }
+                file {
+                  url
+                  contentType
+                }
                 description
               }
             }
