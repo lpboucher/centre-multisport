@@ -52,5 +52,6 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-svg`,
   ],
 }
