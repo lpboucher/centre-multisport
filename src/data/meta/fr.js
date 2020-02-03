@@ -17,5 +17,6 @@ module.exports = {
     'office': 'Bureau',
     'field': 'Terrain',
     'ifRequired': 'au besoin',
-    'moreNews': 'Plus de nouvelles'
+    'moreNews': 'Plus de nouvelles',
+    'backToNews': 'Retour aux nouvelles'
   };

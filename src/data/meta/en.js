@@ -17,5 +17,6 @@ module.exports = {
     'office': 'Office',
     'field': 'Fields',
     'ifRequired': 'as required',
-    'moreNews': 'View more news'
+    'moreNews': 'View more news',
+    'backToNews': 'Back to news'
   };
