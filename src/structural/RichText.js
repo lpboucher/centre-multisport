@@ -4,7 +4,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
 import { FormattedDate, useIntl } from 'react-intl';
 
-import Container from './Container';
 import Heading from '../generic/Heading';
 import Text from '../generic/Text';
 
@@ -32,7 +31,7 @@ const RichText = ({title, content, date}) => {
     const { locale } = useIntl();
     const options = createOptions(locale);
     return (
-        <Container background="primaryDark">
+        <>
             <Heading large bold color="primaryLight">{title}</Heading>
             {date &&
             <Text justify large>
@@ -40,7 +39,7 @@ const RichText = ({title, content, date}) => {
             </Text>
             }
             <Text justify large>{documentToReactComponents(content.json, options)}</Text>
-        </Container>
+        </>
     )
 }
 
