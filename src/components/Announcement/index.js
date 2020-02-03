@@ -21,6 +21,8 @@ const Announcement = ({isMainPage}) => {
     const announcement = useAnnouncement({node_locale: [locale]});
     const announce = announcement.find(item => item.isActive);
     return (
+        <>
+        {announce && 
         <TickerWrapper isMainPage={isMainPage}>
             <Ticker bold speed={10} mode="chain">
             {() => 
@@ -28,6 +30,8 @@ const Announcement = ({isMainPage}) => {
             }
             </Ticker>
         </TickerWrapper>
+        }   
+        </>
     )
 }
 
