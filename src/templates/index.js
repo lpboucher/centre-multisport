@@ -6,8 +6,8 @@ import Hero from '../components/Hero';
 import OfferList from '../components/OfferList';
 import OrgDescription from '../components/OrgDescription';
 import News from '../components/NewsSlider';
-import Contact from '../components/Contact';
 import Gallery from '../components/Gallery';
+import LogoLine from '../components/LogoLine';
 
 const MainPage = ({ data, location, pageContext }) => (
   <Layout data={data} location={location}>
@@ -16,7 +16,7 @@ const MainPage = ({ data, location, pageContext }) => (
     <OrgDescription />
     <News />
     <Gallery type="index" background="primaryLight"/>
-    <Contact background="primaryDark"/>
+    <LogoLine background="primaryDark" header="partners"/>
   </Layout>
 );
 
