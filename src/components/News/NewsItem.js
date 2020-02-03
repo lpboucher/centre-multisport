@@ -17,7 +17,7 @@ export const StyledNewsItem = styled.div`
   }
 `;
 
-const NewsItem = ({background, newsItem, withPreview, isLight}) => {
+const NewsItem = ({background, newsItem, withPreview, isLight, isArchive}) => {
     return (
         <StyledNewsItem>
             <Flex noWrap minHeight={'200px'}>
@@ -29,8 +29,9 @@ const NewsItem = ({background, newsItem, withPreview, isLight}) => {
                     slug={newsItem.slug}
                     light={isLight}
                     withPreview
+                    isArchive={isArchive}
                 />
-                {withPreview &&
+                {withPreview && !isArchive &&
                     <Img fluid={newsItem.featuredImage.fluid} />
                 }
             </Flex>

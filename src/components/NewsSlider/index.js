@@ -43,7 +43,7 @@ const News = () => {
         ]
     };
     //include in styled component
-    const backgrounds = ['primaryLight', 'primaryHighlight', 'secondaryHighlight'];
+    const backgrounds = ['primaryLight', 'primaryHighlight', 'secondaryHighlight', 'additionalHighlight'];
     return (
         <Container background="primaryDark">
             <NewsSlider {...settings}>
