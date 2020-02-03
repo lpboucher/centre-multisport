@@ -5,14 +5,21 @@ import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import LogoLine from '../components/LogoLine';
+import ImageGallery from '../components/NewsArticle/ImageGallery';
 
-const AboutPage = ({data, location, pageContext}) => (
-    <Layout data={data} location={location}>
-        <Hero page={pageContext.template} />
-        <About {...data.contentfulAbout}/>
-        <LogoLine background="primaryDark" header="partners"/>
-    </Layout>
-);
+const AboutPage = ({data, location, pageContext}) => {
+    const { imageBand } = data.contentfulAbout
+    return (
+      <Layout data={data} location={location}>
+          <Hero page={pageContext.template} />
+          <About {...data.contentfulAbout}/>
+          <LogoLine background="primaryDark" header="partners"/>
+          {imageBand && imageBand.length > 0 &&
+          <ImageGallery images={imageBand} />
+          }
+      </Layout>
+  );
+}
 
 export const query = graphql`
   query ($slug: String!, $locale: String!) {
@@ -29,6 +36,15 @@ export const query = graphql`
       title
       content {
         json
+      }
+      imageBand {
+        id
+        file {
+          url
+        }
+        fluid {
+          ...GatsbyContentfulFluid
+        }
       }
     }
   }
