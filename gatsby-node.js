@@ -57,39 +57,40 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       `).then((result) => {
       const prefix = locale;
-      let postsPerPage = 5;
       const articles = result.data.articles.edges;
-      let numPages = Math.min(Math.ceil((articles.length / postsPerPage)), 2);
+      const postsPerNewsPage = 1;
+      const maxNewsPages = 2;
+      const postsPerArchivePage = 1;
+      const numNewsPages = Math.min(Math.ceil(articles.length / postsPerNewsPage), maxNewsPages);
+      const numArchivePages = Math.ceil((articles.length - (maxNewsPages * postsPerNewsPage)) / postsPerArchivePage);
       let template = 'news';
-      Array.from({ length: numPages }).forEach((_, i) => {
-        const pathSuffix = i === 0 ? '' : `/${i + 1}`
+      Array.from({ length: numNewsPages }).forEach((_, i) => {
+        const pathSuffix = i === 0 ? '' : `${i + 1}`
         createPage({
           path: `/${prefix}/${template}/${pathSuffix}`,
           component: path.resolve(`./src/templates/${template}.js`),
           context: {
             locale: locale,
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages: numPages,
+            limit: postsPerNewsPage,
+            skip: i * postsPerNewsPage,
+            numPages: numNewsPages,
             currentPage: i + 1,
             showAll: true
           }
         });
       });
 
-      postsPerPage = 10;
-      numPages = Math.ceil((articles.length / postsPerPage));
       template = 'archive';
-      Array.from({ length: numPages }).forEach((_, i) => {
-        const pathSuffix = i === 0 ? '' : `/${i + 1}`
+      Array.from({ length: numArchivePages }).forEach((_, i) => {
+        const pathSuffix = i === 0 ? '' : `${i + 1}`
         createPage({
           path: `/${prefix}/${template}/${pathSuffix}`,
           component: path.resolve(`./src/templates/${template}.js`),
           context: {
             locale: locale,
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages: numPages,
+            limit: postsPerArchivePage,
+            skip: (i * postsPerArchivePage) + (postsPerNewsPage * maxNewsPages),
+            numPages: numArchivePages,
             currentPage: i + 1
           }
         });
