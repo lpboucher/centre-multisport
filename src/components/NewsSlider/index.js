@@ -22,6 +22,8 @@ const News = () => {
     const newsItems = news.filter(item => item.appearsOnMainSlider);
     const settings = {
         arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
         dots: true,
         infinite: true,
         speed: 500,
