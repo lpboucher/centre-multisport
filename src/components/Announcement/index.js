@@ -8,8 +8,9 @@ import Text from '../../generic/Text';
 import { useAnnouncement } from "../../hooks/use-announcement";
 
 const Announce = styled(Text)`
-    margin-right: 25vw;
-    margin-left: 25vw;
+    width: max-content;
+    padding-left: 25px;
+    padding-right: 25px;
 `
 
 const TickerWrapper = styled.div`
