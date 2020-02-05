@@ -10,7 +10,7 @@ module.exports = {
     city: `Rosemère`,
     postalCode: `J7A 4S2`,
     phone: `+1 450 621-2520`,
-    email: `multiportsrosemere@outlook.com`,
+    email: `multisportsrosemere@outlook.com`,
     languages
   },
   plugins: [
