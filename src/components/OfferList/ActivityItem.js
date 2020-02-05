@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
+import { useIntl } from 'react-intl';
 
 import Flex from '../../structural/Flex';
 import Img from 'gatsby-image';
@@ -14,14 +16,11 @@ const HoverableContainer = styled(Flex)`
         background: ${({theme}) => theme.primaryHighlight};
         opacity: 1;
     }
-
-    &:hover ${ItemWrapper} {
-        opacity: 0;
-        transition: opacity 0.4s;
-    }
 `
 
 const ActivityItem = ({label, icon, specifications}) => {
+    const { locale } = useIntl();
+    const link = label === "Soccer" || label === "Football" ? 'calendar' : 'xollox';
     return (
     <HoverableContainer column justifyAround contentCenter height="150px">
         <ItemWrapper width='100px'>
@@ -30,9 +29,11 @@ const ActivityItem = ({label, icon, specifications}) => {
                 <Img fluid={icon.fluid}/>
             </ImageWrapper>
         </ItemWrapper>
-        <Specifications justifyCenter alignCenter column>
-            {specifications.map(spec => <SpecificationItem key={`label-${spec.label}`} spec={spec.label}/>)}
-        </Specifications>
+        <Link to={`/${locale}/${link}`}>
+            <Specifications justifyCenter alignCenter column>
+                {specifications.map(spec => <SpecificationItem key={`label-${spec.label}`} spec={spec.label}/>)}
+            </Specifications>
+        </Link>
     </HoverableContainer>
     )
 }
