@@ -7,16 +7,10 @@ import Container from '../../structural/Container';
 import Flex from '../../structural/Flex';
 import Logo from './Logo';
 import Menu from './Menu';
-import SocialIcon from './SocialIcon';
 import SelectLanguage from './SelectLanguage';
 import Burger from './Burger';
 import MobileMenu from './MobileMenu';
 import Announcement from '../Announcement';
-import Button from '../../generic/Button';
-import SocialButton from './SocialButton';
-
-import FB from '../../assets/image/iconmonstr-facebook-5.svg';
-import IG from '../../assets/image/iconmonstr-instagram-15.svg';
 
 const MenuWrapper = styled(Container)`
   padding-left: 20px;
@@ -38,17 +32,6 @@ const Header = ({langs, isMainPage}) => {
             <Logo />
             <Menu />
             <SelectLanguage langs={langs} />
-            <SocialButton />
-            {/*<Button>
-            <Flex>
-              <SocialIcon link="http://www.facebook.com" width="30px">
-                <FB width={'30px'} fill={'#DCDCDC'}/>
-              </SocialIcon>
-              <SocialIcon link="http://www.facebook.com" width="30px">
-                <IG width={'30px'} fill={'#DCDCDC'}/>
-              </SocialIcon>
-            </Flex>
-            </Button>*/}
             <Burger open={open} setOpen={setOpen} />
           </Flex>
       </MenuWrapper>
