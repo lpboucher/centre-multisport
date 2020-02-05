@@ -1,6 +1,7 @@
 module.exports = {
     'selectLanguage': 'Select your language',
     'articleFilter': 'Filter articles:',
+    'albumFilter': 'Filter albums:',
     'contactUs': 'Contact Us',
     'openingHours': 'Opening Hours',
     'submitButton': 'Submit',
@@ -18,5 +19,6 @@ module.exports = {
     'field': 'Fields',
     'ifRequired': 'as required',
     'moreNews': 'View more news',
-    'backToNews': 'Back to news'
+    'backToNews': 'Back to news',
+    'all': 'All'
   };

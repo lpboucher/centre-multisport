@@ -1,6 +1,7 @@
 module.exports = {
     'selectLanguage': 'Choisissez votre language',
     'articleFilter': 'Filtrez les articles:',
+    'albumFilter': 'Filtrez les albums:',
     'contactUs': 'Contactez-Nous',
     'openingHours': 'Heures d\'ouverture',
     'submitButton': 'Envoyer',
@@ -18,5 +19,6 @@ module.exports = {
     'field': 'Terrain',
     'ifRequired': 'au besoin',
     'moreNews': 'Plus de nouvelles',
-    'backToNews': 'Retour aux nouvelles'
+    'backToNews': 'Retour aux nouvelles',
+    'all': 'Tous'
   };

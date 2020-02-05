@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   locales.forEach((locale) => {
     const prefix = locale;
-    ['index', 'contact', 'gallery', 'calendar', 'social'].forEach((template) => {
+    ['index', 'contact', 'calendar', 'social'].forEach((template) => {
       const slug = template === 'index' ? '' : `/${template}`;
       createPage({
         path: `/${prefix}${slug}`,
@@ -34,11 +34,12 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
-          categories: allContentfulNewsCategory(filter: {node_locale: { eq: "${locale}" } }) {
+          albums: allContentfulAlbum(filter: {node_locale: { eq: "${locale}" } }) {
             edges {
               node {
                 node_locale
-                name
+                label
+                slug
               }
             }
           }
@@ -124,6 +125,35 @@ exports.createPages = async ({ graphql, actions }) => {
             slug: item.node.slug
           },
         });
+      });
+
+      result.data.albums.edges.forEach(item => {
+        const template = 'gallery';
+        const prefix = item.node.node_locale;
+        const p = `/${prefix}/${template}/${item.node.slug}`;
+        createPage({
+          path: p,
+          component: path.resolve(`./src/templates/${template}.js`),
+          context: {
+            locale: item.node.node_locale,
+            template: template,
+            slug: item.node.slug,
+            albums: result.data.albums.edges,
+            isAlbum: true
+          },
+        });
+      });
+      
+      template = 'gallery';
+      createPage({
+        path: `/${prefix}/${template}`,
+        component: path.resolve(`./src/templates/${template}.js`),
+        context: {
+          locale: prefix,
+          template: template,
+          albums: result.data.albums.edges,
+          isAlbum: false
+        },
       });
 
     })

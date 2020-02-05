@@ -6,12 +6,14 @@ import Img from 'gatsby-image';
 import Lightbox from "react-image-lightbox";
 
 import Container from '../../structural/Container';
+import AlbumFilter from './AlbumFilter';
 import Grid from '../../structural/Grid';
 import Flex from '../../structural/Flex';
 import ImageWrapper from '../../generic/ImageWrapper';
 import Specifications from '../OfferList/Specifications';
 
 import { useGallery } from "../../hooks/use-gallery";
+import { useAlbum } from '../../hooks/use-album';
 
 const HoverableContainer = styled(Flex)`
     cursor: pointer;
@@ -40,50 +42,65 @@ const ItemDescription = styled(Specifications)`
     border-radius: 0;
 `
 
-const Gallery = ({background, type}) => {
+const Gallery = ({background, type, albums=null, context}) => {
     const [ isLightboxOpen, setLightboxOpen ] = useState(false);
     const [ photoIndex, setPhotoIndex ] = useState(0);
     const { locale } = useIntl();
-    const gallery = useGallery({node_locale: [locale], location: [type]});
-    return (    
-    <Container background={background}>
-        <Grid withFeatured>
-            {gallery.images.map((img, index) => 
-                type === 'index' ?
-                    <HoverableContainer key={`${type}-${img.id}`}>
-                        <Link to={`/${locale}/gallery`}>
+    const gallery = context && context.isAlbum ? 
+        useAlbum({node_locale: [locale], slug: [context.slug]})
+        :
+        useGallery({node_locale: [locale], location: [type]})
+    return (   
+    <> 
+        {albums &&
+            <Container small background={background}>
+                <AlbumFilter 
+                    albums={albums}
+                    pathPrefix={`/${locale}/gallery`}
+                    isAlbum={context.isAlbum}
+                    current={context.isAlbum ? context.slug : 'all'}
+                />
+            </Container>
+        }
+        <Container small background={background}>
+            <Grid withFeatured>
+                {gallery.images.map((img, index) => 
+                    type === 'index' ?
+                        <HoverableContainer key={`${type}-${img.id}`}>
+                            <Link to={`/${locale}/gallery`}>
+                                <GalleryItem width='100%' height='100%' >
+                                        <Img fluid={img.fluid} />
+                                </GalleryItem>
+                            </Link>
+                        </HoverableContainer>
+                    :
+                    <HoverableContainer key={`${type}-${img.id}`} onClick={() => {setPhotoIndex(index); setLightboxOpen(true)}}>
                             <GalleryItem width='100%' height='100%' >
+                                    {img.file.contentType !== 'video/mp4' ?
                                     <Img fluid={img.fluid} />
+                                    : null
+                                    }
                             </GalleryItem>
-                        </Link>
-                    </HoverableContainer>
-                :
-                <HoverableContainer key={`${type}-${img.id}`} onClick={() => {setPhotoIndex(index); setLightboxOpen(true)}}>
-                        <GalleryItem width='100%' height='100%' >
-                                {img.file.contentType !== 'video/mp4' ?
-                                <Img fluid={img.fluid} />
-                                : null
+                            <ItemDescription justifyCenter alignCenter column>
+                                {//img.description
                                 }
-                        </GalleryItem>
-                        <ItemDescription justifyCenter alignCenter column>
-                            {//img.description
-                            }
-                            description
-                        </ItemDescription>
-                </HoverableContainer>
-            )}
-        </Grid>
-        {isLightboxOpen && (
-            <Lightbox
-                mainSrc={gallery.images[photoIndex].file.url}
-                nextSrc={gallery.images[(photoIndex + 1) % gallery.images.length].file.url}
-                prevSrc={gallery.images[(photoIndex + gallery.images.length - 1) % gallery.images.length].file.url}
-                onCloseRequest={() => setLightboxOpen(false)}
-                onMovePrevRequest={() => setPhotoIndex((photoIndex + gallery.images.length - 1) % gallery.images.length)}
-                onMoveNextRequest={() => setPhotoIndex((photoIndex + gallery.images.length + 1) % gallery.images.length)}
-            />
-            )}
-    </Container>
+                                description
+                            </ItemDescription>
+                    </HoverableContainer>
+                )}
+            </Grid>
+            {isLightboxOpen && (
+                <Lightbox
+                    mainSrc={gallery.images[photoIndex].file.url}
+                    nextSrc={gallery.images[(photoIndex + 1) % gallery.images.length].file.url}
+                    prevSrc={gallery.images[(photoIndex + gallery.images.length - 1) % gallery.images.length].file.url}
+                    onCloseRequest={() => setLightboxOpen(false)}
+                    onMovePrevRequest={() => setPhotoIndex((photoIndex + gallery.images.length - 1) % gallery.images.length)}
+                    onMoveNextRequest={() => setPhotoIndex((photoIndex + gallery.images.length + 1) % gallery.images.length)}
+                />
+                )}
+        </Container>
+    </>
 )}
 
 export default Gallery;
