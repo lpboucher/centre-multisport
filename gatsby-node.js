@@ -59,11 +59,11 @@ exports.createPages = async ({ graphql, actions }) => {
       `).then((result) => {
       const prefix = locale;
       const articles = result.data.articles.edges;
-      const postsPerNewsPage = 1;
+      const postsPerNewsPage = 5;
       const maxNewsPages = 2;
-      const postsPerArchivePage = 1;
+      const postsPerArchivePage = 10;
       const numNewsPages = Math.min(Math.ceil(articles.length / postsPerNewsPage), maxNewsPages);
-      const numArchivePages = Math.ceil((articles.length - (maxNewsPages * postsPerNewsPage)) / postsPerArchivePage);
+      const numArchivePages = articles.length >= (maxNewsPages * postsPerNewsPage) ? Math.ceil((articles.length - (maxNewsPages * postsPerNewsPage)) / postsPerArchivePage) : 0;
       let template = 'news';
       Array.from({ length: numNewsPages }).forEach((_, i) => {
         const pathSuffix = i === 0 ? '' : `${i + 1}`
@@ -76,12 +76,14 @@ exports.createPages = async ({ graphql, actions }) => {
             skip: i * postsPerNewsPage,
             numPages: numNewsPages,
             currentPage: i + 1,
+            hasArchive: numArchivePages > 0,
             showAll: true
           }
         });
       });
 
       template = 'archive';
+      if (numArchivePages > 0) {
       Array.from({ length: numArchivePages }).forEach((_, i) => {
         const pathSuffix = i === 0 ? '' : `${i + 1}`
         createPage({
@@ -96,6 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         });
       });
+    }
 
       result.data.articles.edges.forEach(item => {
         const template = 'article';

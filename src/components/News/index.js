@@ -29,7 +29,7 @@ const NewsList = ({news, pages, isArchive}) => {
                 />
             )}
             <Pagination pathPrefix={`/${locale}/${isArchive ? 'archive' : 'news'}`} {...pages} />
-            {!isArchive && pages.currentPage === pages.numPages &&
+            {!isArchive && pages.currentPage === pages.numPages && pages.hasArchive &&
             <Flex justifyCenter>
                 <Button>
                     <Link to={`${locale}/archive`}>
