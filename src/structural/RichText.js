@@ -16,16 +16,22 @@ const imgStyle = {
   marginBottom: '40px'
 }
 
+const pStyle = {
+  padding: '10px 0'
+}
+
 const createOptions = (locale) => {
   return {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { url } = node.data.target.fields.file['fr'];
         return <Link to={`/${locale}/gallery`}><img style={imgStyle} src={url} /></Link>
-      }
+      },
+      [BLOCKS.PARAGRAPH]: (node, children) => <p style={pStyle}>{children}</p>
     }
   }
 }
+
 
 const RichText = ({title, content, date}) => {
     const { locale } = useIntl();
