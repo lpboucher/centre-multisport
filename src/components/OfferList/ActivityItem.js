@@ -14,6 +14,11 @@ const HoverableContainer = styled(Flex)`
         background: ${({theme}) => theme.primaryHighlight};
         opacity: 1;
     }
+
+    &:hover ${ItemWrapper} {
+        opacity: 0;
+        transition: opacity 0.4s;
+    }
 `
 
 const ActivityItem = ({label, icon, specifications}) => {
