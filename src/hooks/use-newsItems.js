@@ -4,7 +4,9 @@ export const useNewsItems = (filter) => {
   const { allContentfulNewsItem } = useStaticQuery(
     graphql`
       query {
-        allContentfulNewsItem {
+        allContentfulNewsItem(
+          sort: {fields: date, order: DESC}
+          ) {
             nodes {
                 id
                 excerpt
