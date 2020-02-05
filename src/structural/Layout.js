@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset-advanced';
 import Header from '../components/Header';
-import Instafeed from '../components/Instagram';
 import Footer from '../components/Footer';
 import SEO from '../utils/SEO/SEO';
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
@@ -64,8 +63,6 @@ class LayoutWrapper extends Component {
                   />
               <Header langs={this.langsMenu} isMainPage={isHome} />
                 {this.children}
-              {//<Instafeed />
-  }
               <Footer />
             </>
           </ThemeProvider>

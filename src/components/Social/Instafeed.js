@@ -14,7 +14,7 @@ const InstagramFeed = () => {
         resolution: 'thumbnail',
         sortBy: 'most-recent',
         userId: `${process.env.GATSBY_INSTAGRAM_USER_ID}`,
-        limit: 4
+        limit: 6
       };
 
     const fetchData = async () => {
@@ -28,13 +28,13 @@ const InstagramFeed = () => {
     useEffect(() => {
         fetchData();
     },[]);
-    console.log(insta);
+    
     return (
-        <Grid noGap columns={4}>
+        <Grid noGap columns={2}>
             {insta && insta.length > 0 &&
             <>
                 {insta.map(item => 
-                    <ImageWrapper key={item.id}>
+                    <ImageWrapper width="100%" key={item.id}>
                         <img src={item.images.standard_resolution.url}></img>
                     </ImageWrapper>
                 )}
