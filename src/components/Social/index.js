@@ -10,33 +10,42 @@ import InstagramFeed from './Instafeed';
 import FacebookFeed from './Facebookfeed';
 
 const SocialColumns = styled(Flex)`
-    & > * {
-        width: 300px;
+    & > div:first-child,
+    & > div:last-child {
+        width: 320px;
         padding: 10px;
-        margin: 0 auto;
+    }
 
-        @media ${device.tablet} {
-            width: 350px;
+    & > div:first-child {
+        order: 1;
+    }
+    & > div:last-child {
+        order: 2;
+        @media ${device.tabletMid} {
+            order: 3;
         }
+    }
+
+    & > div:nth-child(2) {
+        width: 100%;
+        order: 3;
 
         @media ${device.tabletMid} {
-            width: 400px;
-        }
-
-        @media ${device.laptop} {
-            width: 320px;
+            width: calc(100% - 2 * (320px));
+            padding: 10px;
+            order: 2;
         }
     }
 `
 
 const Social = () => (
-  <Container background="primaryDark">
+  <Container full background="primaryDark">
     <Heading h3 large center>
       <FormattedMessage id="socialHeader" />
     </Heading>
     <SocialColumns justifyCenter>
-        <InstagramFeed />
         <FacebookFeed />
+        <InstagramFeed />
         <FacebookFeed />
     </SocialColumns>
   </Container>
