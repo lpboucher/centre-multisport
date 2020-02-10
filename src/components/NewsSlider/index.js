@@ -16,6 +16,10 @@ const StyledFlex = styled(Flex)`
     margin-top: 25px;
 `
 
+const MoreNewsButton = styled(Button)`
+    margin-top: 40px;
+`
+
 const News = () => {
     const { locale } = useIntl();
     const news = useNewsItems({node_locale: [locale]});
@@ -59,11 +63,11 @@ const News = () => {
                 )}
             </NewsSlider>
             <StyledFlex justifyCenter>
-                <Button>
+                <MoreNewsButton>
                     <Link to={`${locale}/news`}>
                         <FormattedMessage id="moreNews" />
                     </Link>
-                </Button>
+                </MoreNewsButton>
             </StyledFlex>
         </Container>
     )

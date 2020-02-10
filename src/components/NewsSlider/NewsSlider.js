@@ -9,7 +9,7 @@ const NewsSlider = styled(Slider)`
 
   & .slick-dots  {
     width: 100%;
-    bottom: -25px;
+    bottom: -40px;
   }
 
   & .slick-dots .slick-active button:before {
