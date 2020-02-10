@@ -47,6 +47,7 @@ class LayoutWrapper extends Component {
     const { pathname } = this.props.location;
     const isHome = pathname === '/en' || pathname === '/fr' || pathname === '/fr/' || pathname === '/en/';
     const schema = schemaBuilder('WebSite', `https://practical-dubinsky-89e88c.netlify.com/`);
+    const { keywords } = this.props;
     return (
       <IntlProvider
         locale={this.langKey}
@@ -58,8 +59,8 @@ class LayoutWrapper extends Component {
               <SEO 
                       title={'Centre Multisports Rosemere'}
                       description={'Le centre multisport par excellence sur la rive-nord'}
-                      keywords={['sport, soccer, centre sportif, rosemere, football, sport interieur']}
                       schema={schema}
+                      keywords={keywords ? keywords : null}
                   />
               <Header langs={this.langsMenu} isMainPage={isHome} />
                 {this.children}

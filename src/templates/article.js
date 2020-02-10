@@ -17,7 +17,7 @@ const ArticlePage = ({data, location, pageContext}) => {
   return (
     <Layout data={data} location={location}>
         <SEO 
-            keywords={[data.contentfulNewsItem.title]}
+            keywords={[data.contentfulNewsItem.title, ...data.contentfulNewsItem.seoKeywords]}
             schema={schema}
           />
         <Hero page={pageContext.template} />
@@ -46,6 +46,7 @@ export const query = graphql`
         content {
             json
         }
+        seoKeywords
         imageBand {
           id
           file {

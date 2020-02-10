@@ -8,9 +8,10 @@ import LogoLine from '../components/LogoLine';
 import ImageGallery from '../components/NewsArticle/ImageGallery';
 
 const AboutPage = ({data, location, pageContext}) => {
-    const { imageBand } = data.contentfulAbout
+    const { imageBand, seoKeywords, slug } = data.contentfulAbout;
+    const keywords = slug !== 'about' ? seoKeywords : null;
     return (
-      <Layout data={data} location={location}>
+      <Layout keywords={keywords} data={data} location={location}>
           <Hero page={pageContext.template} />
           <About {...data.contentfulAbout}/>
           <LogoLine background="primaryDark" header="partners"/>
@@ -37,6 +38,7 @@ export const query = graphql`
       content {
         json
       }
+      seoKeywords
       imageBand {
         id
         file {
