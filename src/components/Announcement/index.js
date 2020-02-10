@@ -25,7 +25,7 @@ const Announcement = ({isMainPage}) => {
         <>
         {announce && 
         <TickerWrapper isMainPage={isMainPage}>
-            <Ticker bold speed={10} mode="chain">
+            <Ticker bold speed={10} mode="smooth">
             {() => 
                 <Announce color={isMainPage ? 'primaryDark' : 'primaryLight'} style={{}}bold>{announce.text}</Announce>
             }
