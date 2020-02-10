@@ -14,10 +14,11 @@ const ArticlePage = ({data, location, pageContext}) => {
     `https://practical-dubinsky-89e88c.netlify.com/${pageContext.locale}/article/${pageContext.slug}`,
     data.contentfulNewsItem.title,
     );
+  const keywords = data.contentfulNewsItem.seoKeywords ? [data.contentfulNewsItem.title, ...data.contentfulNewsItem.seoKeywords] : [data.contentfulNewsItem.title];
   return (
     <Layout data={data} location={location}>
         <SEO 
-            keywords={[data.contentfulNewsItem.title, ...data.contentfulNewsItem.seoKeywords]}
+            keywords={keywords}
             schema={schema}
           />
         <Hero page={pageContext.template} />
