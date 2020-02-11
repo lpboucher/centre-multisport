@@ -41,9 +41,7 @@ const ImageGallery = ({images}) => {
                     <GalleryItem key={img.id} onClick={() => {setPhotoIndex(index); setLightboxOpen(true)}} width="25%" height="100%">
                         <Img fluid={img.fluid} />
                     <ItemDescription justifyCenter alignCenter column>
-                        {//img.description
-                        }
-                        description
+                        {img.description}
                     </ItemDescription>
                     </GalleryItem>
                 )}

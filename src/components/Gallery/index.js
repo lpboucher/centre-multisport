@@ -82,9 +82,7 @@ const Gallery = ({background, type, albums=null, context}) => {
                                     }
                             </GalleryItem>
                             <ItemDescription justifyCenter alignCenter column>
-                                {//img.description
-                                }
-                                description
+                                {img.description}
                             </ItemDescription>
                     </HoverableContainer>
                 )}
