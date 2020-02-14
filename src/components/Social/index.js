@@ -44,9 +44,9 @@ const Social = () => (
       <FormattedMessage id="socialHeader" />
     </Heading>
     <SocialColumns justifyCenter>
-        <FacebookFeed />
+        <FacebookFeed query={'https%3A%2F%2Fwww.facebook.com%2FCentre-multisports-de-Rosem%25C3%25A8re-171544226207044%2F&'}/>
         <InstagramFeed />
-        <FacebookFeed />
+        <FacebookFeed query={'https%3A%2F%2Fwww.facebook.com%2FCoachsPerspective%2F&'}/>
     </SocialColumns>
   </Container>
 )
