@@ -93,8 +93,8 @@ const CalendarPage = ({data, location, pageContext}) => (
           <ImageWrapper width="100%" margin="20px auto">
               <img src={dates} alt="ext"/>
           </ImageWrapper>
-        <LogoLine background="primaryDark" header="partners"/>
     </Container>
+    <LogoLine background="primaryDark" header="partners"/>
     </Layout>
 );
 
