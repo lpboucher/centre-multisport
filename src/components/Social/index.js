@@ -10,31 +10,9 @@ import InstagramFeed from './Instafeed';
 import FacebookFeed from './Facebookfeed';
 
 const SocialColumns = styled(Flex)`
-    & > div:first-child,
-    & > div:last-child {
+    & > div {
         width: 320px;
         padding: 10px;
-    }
-
-    & > div:first-child {
-        order: 1;
-    }
-    & > div:last-child {
-        order: 2;
-        @media ${device.tabletMid} {
-            order: 3;
-        }
-    }
-
-    & > div:nth-child(2) {
-        width: 100%;
-        order: 3;
-
-        @media ${device.tabletMid} {
-            width: calc(100% - 2 * (320px));
-            padding: 10px;
-            order: 2;
-        }
     }
 `
 
@@ -45,7 +23,6 @@ const Social = () => (
     </Heading>
     <SocialColumns justifyCenter>
         <FacebookFeed query={'https%3A%2F%2Fwww.facebook.com%2FCentre-multisports-de-Rosem%25C3%25A8re-171544226207044%2F&'}/>
-        <InstagramFeed />
         <FacebookFeed query={'https%3A%2F%2Fwww.facebook.com%2FCoachsPerspective%2F&'}/>
     </SocialColumns>
   </Container>
