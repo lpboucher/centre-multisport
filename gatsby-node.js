@@ -55,6 +55,15 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
+          calendar: allContentfulCalendar(filter: {node_locale: { eq: "${locale}" } }) {
+            edges {
+              node {
+                title
+                slug
+                node_locale
+              }
+            }
+          }
         }
       `).then((result) => {
       const prefix = locale;
@@ -126,6 +135,21 @@ exports.createPages = async ({ graphql, actions }) => {
             locale: item.node.node_locale,
             template: template,
             slug: item.node.slug
+          },
+        });
+      });
+
+      result.data.calendar.edges.forEach(item => {
+        const template = 'calendar';
+        const prefix = item.node.node_locale;
+        const p = `/${prefix}/${template}`;
+        createPage({
+          path: p,
+          component: path.resolve(`./src/templates/${template}.js`),
+          context: {
+            locale: item.node.node_locale,
+            template: template,
+            slug: 'calendrier'
           },
         });
       });

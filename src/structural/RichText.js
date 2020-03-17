@@ -12,7 +12,7 @@ const imgStyle = {
   height: '100%',
   maxWidth: '960px',
   maxHeight: '400px',
-  objectFit: 'cover',
+  objectFit: 'contain',
   marginBottom: '40px'
 }
 

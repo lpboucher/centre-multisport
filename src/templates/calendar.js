@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Layout from '../structural/Layout';
 import Hero from '../components/Hero';
+import About from '../components/About';
 import Container from '../structural/Container';
 import Flex from '../structural/Flex';
 import Heading from '../generic/Heading';
@@ -42,10 +43,15 @@ const scrollToSection = (yCoordinate) => {
   window.scrollTo({top: yCoordinate,behavior: 'smooth'});
 }
 
+const scrollToElement = (id) => {
+    document.getElementById(id).scrollIntoView({behavior: "smooth", block: "start"});
+}
+
 const CalendarPage = ({data, location, pageContext}) => (
     <Layout data={data} location={location}>
         <Hero page={pageContext.template} />
-        <Container background="primaryDark">
+        <About {...data.contentfulCalendar}/>
+        {/*<Container background="primaryDark">
           <SectionHeading>NAVIGUEZ VERS:</SectionHeading>
           <SectionNavigation onClick={() => scrollToSection(351)}>CALENDRIER EN LIGNE</SectionNavigation>
           <SectionNavigation onClick={() => scrollToSection(522)}>DISPONIBILITÉS ACTUELLES</SectionNavigation>
@@ -93,13 +99,13 @@ const CalendarPage = ({data, location, pageContext}) => (
           <ImageWrapper width="100%" margin="20px auto">
               <img src={dates} alt="ext"/>
           </ImageWrapper>
-    </Container>
+</Container>*/}
     <LogoLine background="primaryDark" header="partners"/>
     </Layout>
 );
 
 export const query = graphql`
-  query SiteCalendar {
+  query ($slug: String!, $locale: String!) {
     site {
         siteMetadata{
           languages {
@@ -107,6 +113,16 @@ export const query = graphql`
             langs
           }
         }
+    }
+    contentfulCalendar(slug: {eq: $slug}, node_locale: {eq: $locale}) {
+        title
+        slug
+        content {
+            json
+        }
+        seoKeywords
+        scrollLinks
+        node_locale
     }
   }
 `;
