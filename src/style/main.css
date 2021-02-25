@@ -1,39 +1,39 @@
-h1, h2, h3, h4, h5 {
+.about h1, h2, h3, h4, h5 {
     font-weight: bold;
     margin-bottom: 25px;
     color: #DCDCDC;
     font-weight: 600;
 }
 
-h1 {
+.about h1 {
     font-size: 150%;
 }
 
-h2 {
+.about h2 {
     font-size: 140%;
 }
 
-h3 {
+.about h3 {
     font-size: 130%;
 }
 
-h4 {
+.about h4 {
     font-size: 120%;
 }
 
-h5 {
+.about h5 {
     font-size: 110%;
 }
 
-p > a {
+.about p > a {
     text-decoration: underline;
 }
 
-ul {
+.about ul {
     list-style: inherit;
 }
 
-* > b {
+.about > b {
     font-weight: bold;
     font-weight: 600;
 }

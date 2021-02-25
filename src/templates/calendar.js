@@ -17,8 +17,6 @@ import dispos1 from '../assets/image/dispos1.png';
 import dispos2 from '../assets/image/dispos2.png';
 import dates from '../assets/image/datesimportantes.png';
 
-import "../style/main.css";
-
 const SectionHeading = styled(Heading)`
   margin-top: 20px;
 `
